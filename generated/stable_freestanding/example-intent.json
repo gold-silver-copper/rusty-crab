@@ -1,0 +1,79 @@
+[
+  {
+    "id": "freestanding",
+    "intended_requirements": [
+      "attribute.no_std",
+      "attribute.no_main",
+      "attribute.no_implicit_prelude",
+      "attribute.panic_handler"
+    ],
+    "prerequisites": [],
+    "configuration": "stable_freestanding",
+    "lines": [
+      {
+        "code": "#![no_std]",
+        "explanation": "Use core instead of automatically linking std; this crate does not allocate or use operating-system services."
+      },
+      {
+        "code": "#![no_main]",
+        "explanation": "Omit the ordinary Rust main entry point; this profile produces an object for a separately supplied host."
+      },
+      {
+        "code": "#![no_implicit_prelude]",
+        "explanation": "Require explicit library names and imports instead of bringing library preludes into scope."
+      },
+      {
+        "code": "extern crate core;",
+        "explanation": "Explicitly name the core library so its types are available without an extern prelude."
+      },
+      {
+        "code": "#[panic_handler]",
+        "explanation": "Supply the panic handler required by this no_std binary crate."
+      },
+      {
+        "code": "fn panic(_information: &core::panic::PanicInfo<'_>) -> ! {",
+        "explanation": "The panic handler receives diagnostic information and must never return."
+      },
+      {
+        "code": "    loop { core::hint::spin_loop(); }",
+        "explanation": "A panic would spin indefinitely; this compile-only showcase never invokes the handler."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the divergent panic handler."
+      },
+      {
+        "code": "#[unsafe(no_mangle)]",
+        "explanation": "Safety: this object defines the project-owned rusty_crab_entry symbol once; an eventual host must avoid defining it again."
+      },
+      {
+        "code": "pub extern \"C\" fn rusty_crab_entry(value: u32) -> u32 {",
+        "explanation": "Export a C-ABI function for a future host; it is not an operating-system entry point and is not executed by this profile."
+      },
+      {
+        "code": "    if value <= 9 {",
+        "explanation": "Guard the small input domain using a primitive comparison without library-prelude imports."
+      },
+      {
+        "code": "        value + 1",
+        "explanation": "The guarded input is at most nine, so this increment cannot overflow."
+      },
+      {
+        "code": "    } else {",
+        "explanation": "Handle inputs outside the guarded decimal-digit range."
+      },
+      {
+        "code": "        0",
+        "explanation": "Return a fixed sentinel for values outside the small example domain."
+      },
+      {
+        "code": "    }",
+        "explanation": "Close the bounded conditional expression."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the exported object function."
+      }
+    ]
+  }
+]

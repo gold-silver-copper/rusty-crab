@@ -1,0 +1,66 @@
+[
+  {
+    "id": "use_after_move",
+    "intended_requirements": [
+      "semantic.use_after_move_rejected"
+    ],
+    "prerequisites": [],
+    "configuration": "compile-fail",
+    "lines": [
+      {
+        "code": "fn main() {",
+        "explanation": "Begin the ownership rejection example."
+      },
+      {
+        "code": "    let value = String::from(\"fox\");",
+        "explanation": "An owned string is not Copy."
+      },
+      {
+        "code": "    let moved = value;",
+        "explanation": "Moving ownership makes value unavailable for later use."
+      },
+      {
+        "code": "    let invalid = value.len();",
+        "explanation": "Expected E0382: this attempts to borrow the moved value."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the intentionally rejected function."
+      }
+    ]
+  },
+  {
+    "id": "conflicting_borrows",
+    "intended_requirements": [
+      "semantic.conflicting_borrows_rejected"
+    ],
+    "prerequisites": [],
+    "configuration": "compile-fail",
+    "lines": [
+      {
+        "code": "fn main() {",
+        "explanation": "Begin the incompatible-borrow rejection example."
+      },
+      {
+        "code": "    let mut value = 1;",
+        "explanation": "A mutable local can be borrowed under the ownership rules."
+      },
+      {
+        "code": "    let shared = &value;",
+        "explanation": "This shared borrow remains live until its later use."
+      },
+      {
+        "code": "    let exclusive = &mut value;",
+        "explanation": "Expected E0502: a mutable borrow conflicts with the live shared borrow."
+      },
+      {
+        "code": "    println!(\"{}\", shared);",
+        "explanation": "This use keeps the shared borrow live across the preceding line."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the intentionally rejected function."
+      }
+    ]
+  }
+]

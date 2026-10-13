@@ -1,0 +1,2052 @@
+[
+  {
+    "id": "lexicon",
+    "intended_requirements": [
+      "lex.LiteralKind.Int",
+      "lex.LiteralKind.Float",
+      "lex.LiteralKind.Char",
+      "lex.LiteralKind.Str",
+      "lex.LiteralKind.CStr",
+      "lex.TokenKind.RawIdent"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "//! Literals, identifiers, and comments are lexical forms.",
+        "explanation": "An inner documentation comment describes this module."
+      },
+      {
+        "code": "/*! A block documentation comment applies to the containing module. */",
+        "explanation": "Inner block documentation is another spelling of a doc attribute."
+      },
+      {
+        "code": "/* Outer block /* nested block */ resumes here. */",
+        "explanation": "Ordinary block comments can nest."
+      },
+      {
+        "code": "/// Evaluate representative lexical forms.",
+        "explanation": "An outer line documentation comment describes the following function."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "A public function declaration opens its body."
+      },
+      {
+        "code": "    let anonymous: &'_ str = \"fox\";",
+        "explanation": "A placeholder lifetime asks the compiler to infer the reference lifetime."
+      },
+      {
+        "code": "    let integers = (42_u8, 0xff_u16, 0o77_u32, 0b1010_u64, 1_000usize, 42_i16);",
+        "explanation": "Integer bases, digit separators, and explicit type suffixes alter literal spelling."
+      },
+      {
+        "code": "    let floats = (1.25f32, 2e3_f64, 4f64);",
+        "explanation": "Floating-point literals support fractions, exponents, and integer-looking suffixed forms."
+      },
+      {
+        "code": "    let inferred_float = 0.5;",
+        "explanation": "An unsuffixed floating-point literal permits type inference and defaults to f64 here."
+      },
+      {
+        "code": "    let chars = ('f', '\\n', '\\u{1f980}', b'\\x41');",
+        "explanation": "Character, escaped Unicode, and byte literals have different types."
+      },
+      {
+        "code": "    let strings = (\"fox\\tcrab\", r#\"a \"quoted\" fox\"#, b\"fox\", br##\"raw bytes\"##);",
+        "explanation": "Cooked, raw, byte, and raw byte strings use different lexical forms."
+      },
+      {
+        "code": "    let c_strings = (c\"fox\", cr#\"raw fox\"#);",
+        "explanation": "C string literals include a terminating NUL without spelling it in source."
+      },
+      {
+        "code": "    let r#type = true;",
+        "explanation": "A raw identifier permits a keyword to be used as a variable name; true is a Boolean literal."
+      },
+      {
+        "code": "    let café = false;",
+        "explanation": "Unicode identifiers are permitted and false is the other Boolean literal."
+      },
+      {
+        "code": "    assert!(r#type && !café && integers.0 == 42 && floats.0 > 0.0);",
+        "explanation": "A macro invocation checks representative literal values."
+      },
+      {
+        "code": "    assert_eq!(chars.3, b'A');",
+        "explanation": "Hexadecimal byte escapes and ordinary byte spelling denote the same value."
+      },
+      {
+        "code": "    assert_eq!(strings.2, b\"fox\");",
+        "explanation": "Byte strings produce references to byte arrays."
+      },
+      {
+        "code": "    assert_eq!(c_strings.0.to_bytes(), b\"fox\");",
+        "explanation": "A method call exposes the C string contents without its terminating NUL."
+      },
+      {
+        "code": "    assert_eq!(inferred_float * 2.0, 1.0);",
+        "explanation": "Verify the value represented by the directly written unsuffixed float."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the lexical demonstration function."
+      }
+    ]
+  },
+  {
+    "id": "items",
+    "intended_requirements": [
+      "ast.ItemKind.Struct",
+      "ast.ItemKind.Enum",
+      "ast.ItemKind.Union",
+      "ast.ItemKind.Trait",
+      "ast.ItemKind.Impl",
+      "ast.GenericParamKind.Const"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "#[allow(missing_abi)]",
+        "explanation": "Permit the deprecated implicit-ABI spelling so its still-accepted syntax can be shown."
+      },
+      {
+        "code": "extern fn implicit_abi(value: i32) -> i32 { value }",
+        "explanation": "An extern function without an ABI string uses the default foreign calling convention; this spelling is deprecated."
+      },
+      {
+        "code": "extern crate core as rust_core;",
+        "explanation": "An extern-crate item can rename a dependency."
+      },
+      {
+        "code": "use std::{fmt::Debug, marker::PhantomData as Marker};",
+        "explanation": "A nested use tree groups imports and can rename an imported type."
+      },
+      {
+        "code": "use self::Color::*;",
+        "explanation": "A glob import brings enum variants into the local module namespace."
+      },
+      {
+        "code": "const SIZE: usize = 3;",
+        "explanation": "A constant item has a declared type and compile-time initializer."
+      },
+      {
+        "code": "static NAME: &str = \"fox\";",
+        "explanation": "An immutable static has a fixed allocation and a shared string reference."
+      },
+      {
+        "code": "static mut COUNTER: u32 = 0;",
+        "explanation": "A mutable static exists but this example does not access it unsafely."
+      },
+      {
+        "code": "#[derive(Clone, Copy, Debug, PartialEq)]",
+        "explanation": "An outer derive attribute invokes compiler-provided derive macros."
+      },
+      {
+        "code": "pub struct Point { pub x: i32, pub y: i32 }",
+        "explanation": "A named-field struct declares two public fields."
+      },
+      {
+        "code": "struct Pair(i32, i32);",
+        "explanation": "A tuple struct has positional fields and a constructor."
+      },
+      {
+        "code": "struct Unit;",
+        "explanation": "A unit struct has no fields."
+      },
+      {
+        "code": "#[repr(u8)]",
+        "explanation": "A representation attribute specifies the discriminant representation."
+      },
+      {
+        "code": "enum Color { Red = 1, Green = 2, Blue = 3 }",
+        "explanation": "A fieldless enum may give explicit discriminant values."
+      },
+      {
+        "code": "enum Shape { None, Tuple(i32), Named { value: i32 } }",
+        "explanation": "Enum variants may have unit, tuple, and named-field forms."
+      },
+      {
+        "code": "union Bits { unsigned: u32, signed: i32 }",
+        "explanation": "A union overlays its fields in the same storage."
+      },
+      {
+        "code": "type Coordinates = (i32, i32);",
+        "explanation": "A type alias supplies another name for an existing type."
+      },
+      {
+        "code": "struct Buffer<T, const N: usize> { data: [T; N] }",
+        "explanation": "A type parameter and const parameter control the element and array length."
+      },
+      {
+        "code": "struct Borrowed<'a, T: ?Sized> { value: &'a T }",
+        "explanation": "A lifetime parameter and relaxed Sized bound allow borrowing an unsized value."
+      },
+      {
+        "code": "trait Describe: Debug {",
+        "explanation": "A trait can require a supertrait."
+      },
+      {
+        "code": "    type Output;",
+        "explanation": "An associated type is chosen by each implementation."
+      },
+      {
+        "code": "    fn describe(&self) -> Self::Output;",
+        "explanation": "A required trait method takes a shared receiver and uses an associated type."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the trait declaration."
+      },
+      {
+        "code": "trait Label { const LABEL: &'static str = \"point\"; }",
+        "explanation": "An associated constant can have a default; this separate trait is not used as a trait object."
+      },
+      {
+        "code": "impl Describe for Point {",
+        "explanation": "A trait implementation supplies behavior for a concrete type."
+      },
+      {
+        "code": "    type Output = i32;",
+        "explanation": "Choose the associated output type for this implementation."
+      },
+      {
+        "code": "    fn describe(&self) -> i32 { self.x + self.y }",
+        "explanation": "A method body returns its tail expression implicitly."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the trait implementation."
+      },
+      {
+        "code": "impl Point {",
+        "explanation": "An inherent implementation adds methods without implementing a trait."
+      },
+      {
+        "code": "    fn consume(self) -> i32 { self.x }",
+        "explanation": "A by-value receiver takes ownership of the instance."
+      },
+      {
+        "code": "    fn boxed(self: Box<Self>) -> i32 { self.x }",
+        "explanation": "An explicit self type receives an owned box of the implementing type."
+      },
+      {
+        "code": "    const ORIGIN: Self = Self { x: 0, y: 0 };",
+        "explanation": "Self names the implementing type inside an associated constant."
+      },
+      {
+        "code": "    fn shift(&mut self, dx: i32) { self.x += dx; }",
+        "explanation": "A mutable receiver permits changing a field through the borrow."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the inherent implementation."
+      },
+      {
+        "code": "unsafe trait MarkerTrait {}",
+        "explanation": "An unsafe trait declares a contract its implementers must uphold."
+      },
+      {
+        "code": "unsafe impl MarkerTrait for Point {}",
+        "explanation": "This empty marker contract imposes no additional safety condition."
+      },
+      {
+        "code": "unsafe extern \"C\" {",
+        "explanation": "An unsafe extern block declares foreign symbols using the C ABI."
+      },
+      {
+        "code": "    safe fn getpid() -> i32;",
+        "explanation": "This Unix process-ID query has no caller preconditions and can be declared safe."
+      },
+      {
+        "code": "    static errno_placeholder: i32;",
+        "explanation": "A foreign static declaration need not be linked if it is never referenced."
+      },
+      {
+        "code": "    fn printf(format: *const rust_core::ffi::c_char, ... ) -> i32;",
+        "explanation": "A foreign variadic declaration uses an ellipsis after fixed parameters."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the foreign declaration block; these declarations are not called here."
+      },
+      {
+        "code": "const fn doubled(value: i32) -> i32 { value * 2 }",
+        "explanation": "A const function can execute during constant evaluation or at runtime."
+      },
+      {
+        "code": "unsafe fn read_value(pointer: *const i32) -> i32 {",
+        "explanation": "An unsafe function requires its caller to provide a valid aligned pointer."
+      },
+      {
+        "code": "    unsafe { *pointer }",
+        "explanation": "The caller guarantees a live i32, so dereferencing the pointer is sound."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the unsafe function."
+      },
+      {
+        "code": "extern \"C\" fn c_identity(value: i32) -> i32 { value }",
+        "explanation": "An ordinary Rust-defined function may use the C calling convention."
+      },
+      {
+        "code": "fn identity<T>(value: T) -> T where T: Copy { value }",
+        "explanation": "A where-clause constrains a generic function's type parameter."
+      },
+      {
+        "code": "fn borrowing<'a>(value: &'a str) -> &'a str { value }",
+        "explanation": "A named lifetime relates the input and output borrows."
+      },
+      {
+        "code": "fn raw_lifetime<'r#type>(value: &'r#type str) -> &'r#type str { value }",
+        "explanation": "Raw lifetime names permit a keyword after the lifetime marker."
+      },
+      {
+        "code": "fn higher_ranked<F: for<'a> Fn(&'a str) -> &'a str>(f: F) { assert_eq!(f(\"fox\"), \"fox\"); }",
+        "explanation": "A higher-ranked trait bound requires a callable for every input lifetime."
+      },
+      {
+        "code": "pub(crate) fn restricted() {}",
+        "explanation": "Crate-restricted visibility exposes an item only within this crate."
+      },
+      {
+        "code": "mod nested {",
+        "explanation": "An inline module introduces another namespace."
+      },
+      {
+        "code": "    pub(super) fn parent_visible() {}",
+        "explanation": "Parent-restricted visibility exposes the function to its parent module."
+      },
+      {
+        "code": "    pub(in crate::items) fn path_visible() {}",
+        "explanation": "A visibility restriction may name an ancestor module path."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the nested module."
+      },
+      {
+        "code": "fn shorten<'a, 'b>(value: &'a str) -> &'b str where 'a: 'b { value }",
+        "explanation": "A lifetime where-predicate allows shortening a longer-lived borrow."
+      },
+      {
+        "code": "fn capture<'a, T: 'a>(value: &'a T) -> impl Copy + use<'a, T> { value }",
+        "explanation": "A precise capture bound names the lifetime and type captured by an opaque return type."
+      },
+      {
+        "code": "fn bounded<I: Iterator<Item: Copy>>(iter: I) -> usize { iter.count() }",
+        "explanation": "An associated type bound constrains the iterator item without naming a concrete type."
+      },
+      {
+        "code": "#[repr(align(8))]",
+        "explanation": "A nested attribute meta list contains an integer literal argument."
+      },
+      {
+        "code": "struct Aligned(u8);",
+        "explanation": "The alignment attribute applies to this tuple struct."
+      },
+      {
+        "code": "#[doc = \"A documented identity function.\"]",
+        "explanation": "A name-value attribute supplies documentation with a string literal."
+      },
+      {
+        "code": "#[inline]",
+        "explanation": "An empty-argument attribute requests inline consideration by the compiler."
+      },
+      {
+        "code": "fn documented(value: i32) -> i32 { value }",
+        "explanation": "The function receives both of the preceding attributes."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Run examples using the declared items."
+      },
+      {
+        "code": "    let mut point = Point { x: 2, y: 3 };",
+        "explanation": "A struct expression initializes named fields."
+      },
+      {
+        "code": "    point.shift(1);",
+        "explanation": "Method-call syntax automatically borrows the mutable receiver."
+      },
+      {
+        "code": "    let other = Point { y: 7, ..point };",
+        "explanation": "Struct update syntax takes unspecified fields from another value."
+      },
+      {
+        "code": "    let result = <Point as Describe>::describe(&other);",
+        "explanation": "A qualified path selects a specific trait implementation."
+      },
+      {
+        "code": "    let object: &dyn Describe<Output = i32> = &other;",
+        "explanation": "A trait object fixes an associated type and permits dynamic dispatch."
+      },
+      {
+        "code": "    let buffer = Buffer::<u8, { SIZE }> { data: [5; SIZE] };",
+        "explanation": "A braced const argument distinguishes the value argument from a type path in the parsed syntax."
+      },
+      {
+        "code": "    let view: Borrowed<'static, str> = Borrowed { value: NAME };",
+        "explanation": "Explicit lifetime and type arguments instantiate a struct borrowing a static string."
+      },
+      {
+        "code": "    let bits = Bits { unsigned: 7 };",
+        "explanation": "A union expression initializes exactly one field."
+      },
+      {
+        "code": "    let signed = unsafe { bits.signed };",
+        "explanation": "Both fields are equally sized integers and every i32 bit pattern is valid."
+      },
+      {
+        "code": "    let pointer = &signed as *const i32;",
+        "explanation": "An as-cast converts a shared reference to a raw pointer."
+      },
+      {
+        "code": "    let checked = unsafe { read_value(pointer) };",
+        "explanation": "The pointer still refers to the live, aligned local signed value."
+      },
+      {
+        "code": "    higher_ranked(borrowing);",
+        "explanation": "A generic function accepts an item satisfying a higher-ranked bound."
+      },
+      {
+        "code": "    assert_eq!(result, object.describe());",
+        "explanation": "Static and dynamic trait dispatch produce the same result in this example."
+      },
+      {
+        "code": "    assert_eq!(identity::<i32>(doubled(checked)), 14);",
+        "explanation": "Explicit generic arguments and const-capable function calls compose."
+      },
+      {
+        "code": "    assert_eq!((buffer.data[0], view.value, c_identity(1)), (5, \"fox\", 1));",
+        "explanation": "Indexing, field access, and a function with a foreign ABI remain usable from Rust."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the item demonstration."
+      }
+    ]
+  },
+  {
+    "id": "expressions",
+    "intended_requirements": [
+      "ast.ExprKind.ForLoop",
+      "ast.ExprKind.Loop",
+      "ast.ExprKind.Try",
+      "ast.ExprKind.Await",
+      "ast.AssignOpKind.AddAssign"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "fn fallible() -> Result<i32, &'static str> {",
+        "explanation": "A Result-returning function enables error propagation with question mark."
+      },
+      {
+        "code": "    let value = Ok::<i32, &str>(3)?;",
+        "explanation": "The try operator unwraps success or returns early on error."
+      },
+      {
+        "code": "    return Ok(value);",
+        "explanation": "An explicit return expression leaves the function."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the fallible function."
+      },
+      {
+        "code": "async fn asynchronous() -> i32 {",
+        "explanation": "An async function returns a future that yields its declared output."
+      },
+      {
+        "code": "    let owned = String::from(\"fox\");",
+        "explanation": "An owned string can be captured by an async move block."
+      },
+      {
+        "code": "    async move { owned.len() as i32 }.await",
+        "explanation": "An async move block captures ownership, and await obtains its result."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the async function; it is type-checked but not polled by this example."
+      },
+      {
+        "code": "fn diverges() -> ! { loop {} }",
+        "explanation": "The never return type describes a function that does not return; this function is not called."
+      },
+      {
+        "code": "fn sequence() -> impl Iterator<Item = i32> { 0..3 }",
+        "explanation": "Return-position impl Trait hides the concrete iterator type."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Open the expression demonstration function."
+      },
+      {
+        "code": "    fn local_item() {}",
+        "explanation": "An item declaration is also permitted as a statement inside a block."
+      },
+      {
+        "code": "    let grouped_type: (i32) = 1;",
+        "explanation": "Parentheses can group a type without forming a one-element tuple."
+      },
+      {
+        "code": "    let mut x: i32;",
+        "explanation": "A declaration can defer initialization while fixing the variable's type."
+      },
+      {
+        "code": "    x = 4;",
+        "explanation": "An assignment initializes the previously uninitialized variable."
+      },
+      {
+        "code": "    let arithmetic = (x + 2, x - 2, x * 2, x / 2, x % 3);",
+        "explanation": "Arithmetic binary operators have separate syntax and precedence rules."
+      },
+      {
+        "code": "    let bits = (x & 3, x | 3, x ^ 3, x << 1, x >> 1);",
+        "explanation": "Bitwise operators combine bits or shift them by an integer count."
+      },
+      {
+        "code": "    let comparison = (x == 4, x != 5, x < 5, x <= 4, x > 3, x >= 4);",
+        "explanation": "Equality and ordering comparisons produce Boolean values."
+      },
+      {
+        "code": "    let boolean = true && false || true;",
+        "explanation": "Logical and and or short-circuit evaluation of their right operands."
+      },
+      {
+        "code": "    x += 2; x -= 1; x *= 2; x /= 2; x %= 4;",
+        "explanation": "Arithmetic compound assignments update a place in place."
+      },
+      {
+        "code": "    x &= 3; x |= 4; x ^= 1; x <<= 1; x >>= 1;",
+        "explanation": "Bitwise compound assignments have their own operator forms."
+      },
+      {
+        "code": "    let negative = -x;",
+        "explanation": "Unary negation reverses the sign of a signed integer."
+      },
+      {
+        "code": "    let inverted = !false;",
+        "explanation": "Unary not negates a Boolean and also supports bitwise integer inversion."
+      },
+      {
+        "code": "    let shared = &x;",
+        "explanation": "A shared borrow creates a reference to a live local variable."
+      },
+      {
+        "code": "    let copied = *shared;",
+        "explanation": "Dereference reads through a reference to a Copy value."
+      },
+      {
+        "code": "    let unique = &mut x;",
+        "explanation": "A mutable borrow permits exclusive mutation through the reference."
+      },
+      {
+        "code": "    *unique = copied + 1;",
+        "explanation": "A dereference expression can be the destination of assignment."
+      },
+      {
+        "code": "    let raw_const = &raw const x;",
+        "explanation": "A raw const borrow forms a raw pointer without a reference result."
+      },
+      {
+        "code": "    let raw_mut = &raw mut x;",
+        "explanation": "A raw mutable borrow forms a mutable raw pointer."
+      },
+      {
+        "code": "    let tuple = (1, true, \"fox\");",
+        "explanation": "A tuple combines values of different types."
+      },
+      {
+        "code": "    let array = [1, 2, 3];",
+        "explanation": "An array expression explicitly lists its elements."
+      },
+      {
+        "code": "    let repeated = [0_u8; 4];",
+        "explanation": "A repeat expression fills a fixed-size array from one value."
+      },
+      {
+        "code": "    let coerced: &[i32] = &array;",
+        "explanation": "The compiler inserts an unsizing coercion from an array reference to a slice reference."
+      },
+      {
+        "code": "    let slice: &[i32] = &array[..];",
+        "explanation": "A full range indexes the whole array and coerces it to a slice."
+      },
+      {
+        "code": "    let ranges = (0..2, 0..=2, 0.., ..2, ..=2, ..);",
+        "explanation": "Range expressions allow inclusive, exclusive, and absent endpoints."
+      },
+      {
+        "code": "    let condition = if x > 0 { 1 } else if x == 0 { 0 } else { -1 };",
+        "explanation": "If and else branches form an expression with a common result type."
+      },
+      {
+        "code": "    let scoped = { let value = 2; value + 1 };",
+        "explanation": "A block expression introduces scope and returns its tail expression."
+      },
+      {
+        "code": "    let constant = const { 2 + 2 };",
+        "explanation": "An inline const block is evaluated during compilation."
+      },
+      {
+        "code": "    let grouped = (x + 1) * 2;",
+        "explanation": "Parentheses group a subexpression and change precedence."
+      },
+      {
+        "code": "    let mut total = 0;",
+        "explanation": "A mutable binding can be updated by successive loops."
+      },
+      {
+        "code": "    'outer: for n in 0..4 {",
+        "explanation": "A labeled for loop iterates through a range."
+      },
+      {
+        "code": "        if n == 1 { continue 'outer; }",
+        "explanation": "A labeled continue starts the next iteration of the named loop."
+      },
+      {
+        "code": "        total += n;",
+        "explanation": "The accumulator is updated with a compound assignment."
+      },
+      {
+        "code": "    }",
+        "explanation": "Close the for-loop body."
+      },
+      {
+        "code": "    while total < 6 { total += 1; }",
+        "explanation": "A while loop repeats while its Boolean condition remains true."
+      },
+      {
+        "code": "    let result = loop { break total; };",
+        "explanation": "A break expression can supply the value of a loop expression."
+      },
+      {
+        "code": "    let labeled = 'value: { break 'value 7; };",
+        "explanation": "A labeled block can be exited with a result value."
+      },
+      {
+        "code": "    let mut option = Some(1);",
+        "explanation": "An enum constructor produces an Option value."
+      },
+      {
+        "code": "    while let Some(value) = option { total += value; option = None; }",
+        "explanation": "A while-let loop continues while a refutable pattern matches."
+      },
+      {
+        "code": "    if let Some(value) = Some(2) && value > 0 { total += value; }",
+        "explanation": "A let-chain combines pattern binding with a Boolean condition."
+      },
+      {
+        "code": "    assert_eq!(total, 9);",
+        "explanation": "Check the updates made by the while-let loop and the let-chain."
+      },
+      {
+        "code": "    let closure = |n: i32| -> i32 { n + 1 };",
+        "explanation": "A closure can explicitly annotate parameter and return types."
+      },
+      {
+        "code": "    let captured = String::from(\"fox\");",
+        "explanation": "Create a value whose ownership will be captured by a closure."
+      },
+      {
+        "code": "    let moved = move || captured.len();",
+        "explanation": "A move closure captures its environment by value."
+      },
+      {
+        "code": "    let function: fn(i32) -> i32 = |n| n;",
+        "explanation": "A noncapturing closure coerces to a function pointer."
+      },
+      {
+        "code": "    let inferred: _ = function(closure(1));",
+        "explanation": "An inferred type placeholder delegates the type choice to the compiler."
+      },
+      {
+        "code": "    let (mut a, mut b) = (0, 0);",
+        "explanation": "A tuple pattern introduces multiple mutable local bindings."
+      },
+      {
+        "code": "    assert_eq!((a, b), (0, 0));",
+        "explanation": "Read the initial bindings before destructuring assignment replaces their values."
+      },
+      {
+        "code": "    (a, b, _) = (1, 2, 3);",
+        "explanation": "Destructuring assignment updates existing places and ignores one value."
+      },
+      {
+        "code": "    ;",
+        "explanation": "An empty statement is permitted as a standalone semicolon."
+      },
+      {
+        "code": "    assert_eq!(fallible().unwrap(), 3);",
+        "explanation": "A successful fallible call can be checked at runtime."
+      },
+      {
+        "code": "    assert_eq!((result, labeled, moved(), inferred, a, b), (6, 7, 3, 2, 1, 2));",
+        "explanation": "Verify the values produced by control flow, closures, and assignment."
+      },
+      {
+        "code": "    assert_eq!(sequence().sum::<i32>(), 3);",
+        "explanation": "A method turbofish chooses the sum result type of an opaque iterator."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the expression demonstration function."
+      }
+    ]
+  },
+  {
+    "id": "patterns",
+    "intended_requirements": [
+      "ast.PatKind.Struct",
+      "ast.PatKind.Slice",
+      "ast.PatKind.Range",
+      "ast.PatKind.Or",
+      "ast.LocalKind.InitElse"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "struct Named { x: i32, y: i32 }",
+        "explanation": "A named-field struct supplies data for structural patterns."
+      },
+      {
+        "code": "struct Wrapped(i32);",
+        "explanation": "A tuple struct supplies a constructor pattern."
+      },
+      {
+        "code": "const THREE: i32 = 3;",
+        "explanation": "A constant name can be matched as a pattern."
+      },
+      {
+        "code": "fn extract(value: Option<i32>) -> i32 {",
+        "explanation": "A function accepts an enum that may lack a value."
+      },
+      {
+        "code": "    let Some(number) = value else { return 0; };",
+        "explanation": "A refutable let-else pattern requires a diverging else branch."
+      },
+      {
+        "code": "    number",
+        "explanation": "The successful binding remains available after the let-else statement."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the let-else example."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Open the pattern demonstration function."
+      },
+      {
+        "code": "    let Named { x: renamed, y } = Named { x: 1, y: 2 };",
+        "explanation": "Struct patterns can rename a field or bind it with shorthand syntax."
+      },
+      {
+        "code": "    let Named { x, .. } = Named { x: 3, y: 4 };",
+        "explanation": "A struct rest pattern ignores remaining fields."
+      },
+      {
+        "code": "    let Wrapped(inner) = Wrapped(5);",
+        "explanation": "A tuple-struct pattern destructures a positional field."
+      },
+      {
+        "code": "    let (first, .., last) = (1, 2, 3, 4);",
+        "explanation": "A tuple pattern can ignore a middle sequence with a rest pattern."
+      },
+      {
+        "code": "    let &[head, ref tail @ ..] = &[1, 2, 3][..] else { return; };",
+        "explanation": "A reference and slice pattern binds the remaining slice through an at-pattern."
+      },
+      {
+        "code": "    let ref borrowed = inner;",
+        "explanation": "A ref binding borrows the matched value instead of moving it."
+      },
+      {
+        "code": "    let mut value = 7;",
+        "explanation": "Create a mutable local for a mutable reference pattern."
+      },
+      {
+        "code": "    let &mut copied = &mut value;",
+        "explanation": "An explicit mutable reference pattern matches through a mutable reference."
+      },
+      {
+        "code": "    let (grouped) = copied;",
+        "explanation": "A parenthesized pattern groups a single pattern without forming a tuple."
+      },
+      {
+        "code": "    let outcome = match value {",
+        "explanation": "A match expression selects the first matching arm."
+      },
+      {
+        "code": "        n @ 0..=2 => n,",
+        "explanation": "An at-pattern binds the complete value while an inclusive range restricts it."
+      },
+      {
+        "code": "        self::THREE | 4 => 30,",
+        "explanation": "A constant pattern and a literal pattern are joined with an or-pattern."
+      },
+      {
+        "code": "        5..7 => 50,",
+        "explanation": "An exclusive range pattern excludes its upper bound."
+      },
+      {
+        "code": "        n if n > 6 => n,",
+        "explanation": "A match guard tests an additional condition after binding a pattern."
+      },
+      {
+        "code": "        _ => 0,",
+        "explanation": "A wildcard pattern makes the match exhaustive for the remaining values."
+      },
+      {
+        "code": "    };",
+        "explanation": "Close the match expression and finish its let statement."
+      },
+      {
+        "code": "    match Some(inner) { Some(n) => assert_eq!(n, 5), None => unreachable!() }",
+        "explanation": "Tuple-variant and unit-variant patterns distinguish enum cases."
+      },
+      {
+        "code": "    assert_eq!((renamed, y, x, first, last, head, tail.len()), (1, 2, 3, 1, 4, 1, 2));",
+        "explanation": "Verify the values produced by structural patterns."
+      },
+      {
+        "code": "    assert_eq!((*borrowed, grouped, outcome, extract(None), extract(Some(9))), (5, 7, 7, 0, 9));",
+        "explanation": "Verify borrowing, guards, and both branches of the let-else example."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the pattern demonstration function."
+      }
+    ]
+  },
+  {
+    "id": "macros",
+    "intended_requirements": [
+      "ast.ItemKind.MacroDef",
+      "ast.ExprKind.MacCall"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "macro_rules! scalar_type { () => { u32 }; }",
+        "explanation": "A macro can produce type syntax."
+      },
+      {
+        "code": "macro_rules! scalar_pattern { () => { 7 }; }",
+        "explanation": "A macro can produce pattern syntax."
+      },
+      {
+        "code": "macro_rules! module_item { () => { fn generated_value() -> u32 { 7 } }; }",
+        "explanation": "A macro can produce a module-level function item."
+      },
+      {
+        "code": "module_item!();",
+        "explanation": "Invoke an item-producing macro at module scope."
+      },
+      {
+        "code": "macro_rules! associated_item { () => { fn generated() -> u32 { 7 } }; }",
+        "explanation": "A macro can supply an associated function with a default body."
+      },
+      {
+        "code": "trait Generated { associated_item!(); }",
+        "explanation": "An associated-item macro is expanded inside a trait declaration."
+      },
+      {
+        "code": "impl Generated for () {}",
+        "explanation": "The unit type uses the generated default trait method."
+      },
+      {
+        "code": "macro_rules! foreign_item { () => { fn crab_unlinked(); }; }",
+        "explanation": "A macro can produce a foreign function declaration."
+      },
+      {
+        "code": "unsafe extern \"C\" { foreign_item!(); }",
+        "explanation": "A macro invocation is also allowed in a foreign item position; no symbol is called."
+      },
+      {
+        "code": "macro_rules! unit_expression { () => { () }; }",
+        "explanation": "This macro emits a unit expression rather than forwarding its input."
+      },
+      {
+        "code": "fn no_semicolon() { unit_expression!() }",
+        "explanation": "A macro statement without braces or a semicolon can become the block tail expression."
+      },
+      {
+        "code": "macro_rules! root_path { () => { $crate::main }; }",
+        "explanation": "The special dollar-crate metavariable names the crate defining a declarative macro."
+      },
+      {
+        "code": "macro_rules! sum {",
+        "explanation": "A declarative macro matches and expands token trees."
+      },
+      {
+        "code": "    ($($number:expr),+ $(,)?) => { 0 $(+ $number)+ };",
+        "explanation": "Repetition, expression fragments, separators, and an optional trailing comma form a macro rule."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the declarative macro definition."
+      },
+      {
+        "code": "macro_rules! identity_tokens {",
+        "explanation": "A second macro demonstrates token-tree forwarding."
+      },
+      {
+        "code": "    ($value:tt) => { $value };",
+        "explanation": "A token-tree metavariable can be substituted into an expansion."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the token-forwarding macro."
+      },
+      {
+        "code": "macro_rules! swallow {",
+        "explanation": "A token-tree macro can accept tokens that are not standalone Rust expressions."
+      },
+      {
+        "code": "    ($($token:tt)*) => { () };",
+        "explanation": "Zero-or-more repetition consumes its input and expands to the unit value."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the swallowing macro."
+      },
+      {
+        "code": "#[cfg(any())]",
+        "explanation": "An always-false cfg condition disables the following item in this configuration."
+      },
+      {
+        "code": "fn disabled() { loop {} }",
+        "explanation": "This loop is lexical source presence only and must not establish active loop coverage."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Open the macro demonstration function."
+      },
+      {
+        "code": "    let typed: scalar_type!() = 7;",
+        "explanation": "Invoke a macro in a type position before type checking."
+      },
+      {
+        "code": "    match typed { scalar_pattern!() => (), _ => panic!(\"unexpected value\") }",
+        "explanation": "Invoke a macro in a pattern position before checking match exhaustiveness."
+      },
+      {
+        "code": "    unit_expression! {};",
+        "explanation": "A macro statement may use braces and a trailing semicolon."
+      },
+      {
+        "code": "    unit_expression! {}",
+        "explanation": "A brace-delimited macro statement can omit its semicolon."
+      },
+      {
+        "code": "    assert_eq!(generated_value(), <() as Generated>::generated());",
+        "explanation": "Check the generated free function and generated trait default."
+      },
+      {
+        "code": "    let _entrypoint: fn() = root_path!();",
+        "explanation": "Expand the dollar-crate path and coerce the referenced function item to a pointer without calling it recursively."
+      },
+      {
+        "code": "    swallow!(abstract become box do final macro override priv typeof unsized virtual yield gen try auto builtin catch contract_ensures contract_requires default reuse yeet);",
+        "explanation": "Reserved and weak keyword spellings are valid macro input tokens; this does not activate their reserved or unstable language meanings."
+      },
+      {
+        "code": "    let result = sum!(1, 2, 3,);",
+        "explanation": "A function-like macro invocation passes expression fragments with a trailing comma."
+      },
+      {
+        "code": "    let literal = identity_tokens![7];",
+        "explanation": "A macro invocation may use square-bracket delimiters."
+      },
+      {
+        "code": "    swallow! { ~ };",
+        "explanation": "Brace-delimited macro input may contain a tilde token without treating it as an expression."
+      },
+      {
+        "code": "    assert_eq!((result, literal), (6, 7));",
+        "explanation": "Verify the runtime values produced by macro expansion."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the macro demonstration function."
+      }
+    ]
+  },
+  {
+    "id": "attributes",
+    "intended_requirements": [
+      "ast.AttrArgs.Empty",
+      "ast.AttrArgs.Eq",
+      "attribute.track_caller",
+      "attribute.no_mangle",
+      "attribute.link"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "//! Attributes attach metadata and compilation requests to items.",
+        "explanation": "This module documents attribute syntax."
+      },
+      {
+        "code": "#[must_use = \"Inspect the returned marker\"]",
+        "explanation": "A name-value must-use attribute supplies a diagnostic message."
+      },
+      {
+        "code": "pub struct Marker;",
+        "explanation": "The must-use attribute applies to values of this unit struct."
+      },
+      {
+        "code": "#[non_exhaustive]",
+        "explanation": "External crates must allow for future additions to this enum."
+      },
+      {
+        "code": "pub enum Extensible { First }",
+        "explanation": "A public enum can restrict exhaustive matching outside its crate."
+      },
+      {
+        "code": "#[deprecated(since = \"0.1.0\", note = \"Use modern instead\")]",
+        "explanation": "A deprecated attribute has named string arguments."
+      },
+      {
+        "code": "pub fn legacy() {}",
+        "explanation": "This function is retained to illustrate deprecation metadata."
+      },
+      {
+        "code": "#[inline(always)]",
+        "explanation": "An inline attribute can provide an explicit policy argument."
+      },
+      {
+        "code": "pub fn modern() -> Marker { Marker }",
+        "explanation": "An annotated function returns the must-use type."
+      },
+      {
+        "code": "#[cold]",
+        "explanation": "A cold attribute marks a function as an unlikely execution path."
+      },
+      {
+        "code": "fn unlikely() {}",
+        "explanation": "The cold function need not run to demonstrate the attribute syntax."
+      },
+      {
+        "code": "#[expect(dead_code, reason = \"Show a lint expectation\")]",
+        "explanation": "An expectation records an anticipated lint and an explanatory reason."
+      },
+      {
+        "code": "fn deliberately_unused() {}",
+        "explanation": "This unused private item illustrates the expected dead-code lint."
+      },
+      {
+        "code": "#[track_caller]",
+        "explanation": "This attribute lets the callee observe the caller location."
+      },
+      {
+        "code": "fn caller_file() -> &'static str { std::panic::Location::caller().file() }",
+        "explanation": "The standard library exposes the tracked source location."
+      },
+      {
+        "code": "#[unsafe(no_mangle)]",
+        "explanation": "An unsafe attribute exports the exact function name; this chosen symbol is unique in the project."
+      },
+      {
+        "code": "pub extern \"C\" fn crab_pangram_export_one() {}",
+        "explanation": "The exported function has an explicit C calling convention."
+      },
+      {
+        "code": "#[unsafe(export_name = \"crab_pangram_export_two\")]",
+        "explanation": "An unsafe export-name attribute assigns another unique linker symbol."
+      },
+      {
+        "code": "pub extern \"C\" fn exported_alias() {}",
+        "explanation": "The Rust name and exported linker name need not be identical."
+      },
+      {
+        "code": "#[used]",
+        "explanation": "The used attribute requests retention of a static in the object file."
+      },
+      {
+        "code": "#[unsafe(link_section = \".crab_pangram_bytes\")]",
+        "explanation": "A dedicated ordinary data section avoids reserved runtime section names."
+      },
+      {
+        "code": "static SECTION_BYTE: u8 = 7;",
+        "explanation": "This initialized byte is stored in the selected section."
+      },
+      {
+        "code": "#[cfg(unix)]",
+        "explanation": "The following foreign declarations apply only to Unix targets."
+      },
+      {
+        "code": "#[link(name = \"c\")]",
+        "explanation": "This foreign module names the C library on Unix systems."
+      },
+      {
+        "code": "unsafe extern \"C\" {",
+        "explanation": "Open a foreign declaration block; no foreign function is called in this example."
+      },
+      {
+        "code": "    #[link_name = \"getpid\"]",
+        "explanation": "A link-name attribute associates a Rust declaration with a differently named foreign symbol."
+      },
+      {
+        "code": "    safe fn process_id_alias() -> i32;",
+        "explanation": "This process-ID query has no caller preconditions."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the foreign declaration block."
+      },
+      {
+        "code": "#[macro_export]",
+        "explanation": "A macro-export attribute exposes a declarative macro at the crate root."
+      },
+      {
+        "code": "macro_rules! crab_exported_macro { () => { 7 }; }",
+        "explanation": "The exported macro expands to a literal expression."
+      },
+      {
+        "code": "#[macro_use]",
+        "explanation": "A macro-use attribute imports macros from the following inline module."
+      },
+      {
+        "code": "mod definitions {",
+        "explanation": "Open a module containing a local declarative macro."
+      },
+      {
+        "code": "    macro_rules! local_seven { () => { 7 }; }",
+        "explanation": "This macro will be usable after the macro-use module declaration."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the macro definition module."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Open the attribute demonstration function."
+      },
+      {
+        "code": "    let marker = modern();",
+        "explanation": "Bind the must-use return value so it is not discarded."
+      },
+      {
+        "code": "    let tracked = caller_file();",
+        "explanation": "Call the function that receives caller-location information."
+      },
+      {
+        "code": "    assert!(tracked.ends_with(\"attributes.rs\"));",
+        "explanation": "The tracked caller is this source file."
+      },
+      {
+        "code": "    assert_eq!(local_seven!(), crate::crab_exported_macro!());",
+        "explanation": "Both local macro import and exported macro paths resolve successfully."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the attribute demonstration function."
+      }
+    ]
+  },
+  {
+    "id": "feature_forms",
+    "intended_requirements": [
+      "feature.braced_empty_structs",
+      "feature.dotdot_in_tuple_patterns",
+      "feature.field_init_shorthand",
+      "feature.half_open_range_patterns",
+      "feature.if_let",
+      "feature.if_while_or_patterns",
+      "feature.let_chains"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "struct Empty {}",
+        "explanation": "An empty braced struct has a different spelling from a unit struct."
+      },
+      {
+        "code": "enum EmptyVariant { Braced {} }",
+        "explanation": "An enum variant can use empty braces rather than unit syntax."
+      },
+      {
+        "code": "struct Pair(i32, i32);",
+        "explanation": "A tuple struct provides positional fields for a rest pattern."
+      },
+      {
+        "code": "struct Named { value: i32 }",
+        "explanation": "A named field can be initialized using a same-named local binding."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Open the additional accepted-feature syntax demonstrations."
+      },
+      {
+        "code": "    let projected = (2, 3).0;",
+        "explanation": "A numeric field projection reads the first tuple element directly in source syntax."
+      },
+      {
+        "code": "    let value = 5;",
+        "explanation": "Bind a name matching the following struct field."
+      },
+      {
+        "code": "    let named = Named { value };",
+        "explanation": "Field initialization shorthand uses value for both the field name and its expression."
+      },
+      {
+        "code": "    let Pair(first, ..) = Pair(3, 4);",
+        "explanation": "A tuple-struct rest pattern ignores its remaining positional fields."
+      },
+      {
+        "code": "    let lower = match -1_i32 { ..=0 => true, _ => false };",
+        "explanation": "A half-open inclusive range pattern accepts any value at or below its upper bound."
+      },
+      {
+        "code": "    let mut total = 0;",
+        "explanation": "Accumulate deterministic results from conditional pattern matching."
+      },
+      {
+        "code": "    if let Some(number) = Some(2) { total += number; }",
+        "explanation": "A plain if-let condition binds a value only when its pattern matches."
+      },
+      {
+        "code": "    if let Some(1) | Some(2) = Some(2) { total += 1; }",
+        "explanation": "A top-level or-pattern allows either alternative in an if-let condition."
+      },
+      {
+        "code": "    let mut option = Some(1);",
+        "explanation": "Initialize an option for a single successful while-let iteration."
+      },
+      {
+        "code": "    while let Some(1) | Some(2) = option { total += 1; option = None; }",
+        "explanation": "A top-level or-pattern controls the while-let loop and changing the option stops it."
+      },
+      {
+        "code": "    let mut chain = Some(2);",
+        "explanation": "Initialize a value for the while-let-chain condition."
+      },
+      {
+        "code": "    while let Some(number) = chain && number > 0 { total += number; chain = None; }",
+        "explanation": "A while let-chain combines a pattern binding with a Boolean test of the bound value."
+      },
+      {
+        "code": "    let _empty = (Empty {}, EmptyVariant::Braced {});",
+        "explanation": "Construct both empty braced forms so their declarations have visible uses."
+      },
+      {
+        "code": "    assert_eq!((named.value, first, lower, total), (5, 3, true, 6));",
+        "explanation": "Verify shorthand initialization, tuple-struct destructuring, range matching, and conditional updates."
+      },
+      {
+        "code": "    assert_eq!(projected, 2);",
+        "explanation": "Verify the value read by the direct tuple-field projection."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the additional feature syntax demonstrations."
+      }
+    ]
+  },
+  {
+    "id": "trait_forms",
+    "intended_requirements": [
+      "feature.associated_consts",
+      "feature.associated_types",
+      "feature.generic_associated_types",
+      "feature.async_await",
+      "feature.async_closure",
+      "feature.min_const_fn",
+      "feature.const_extern_fn"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "struct FamilyImpl;",
+        "explanation": "A unit struct serves as the concrete implementation of a type family."
+      },
+      {
+        "code": "trait Family {",
+        "explanation": "A trait can declare families of associated types rather than only one fixed type."
+      },
+      {
+        "code": "    type Borrowed<'a> where Self: 'a;",
+        "explanation": "A generic associated type accepts a lifetime and constrains the lifetime of Self."
+      },
+      {
+        "code": "    type Wrapped<T>;",
+        "explanation": "This associated type has its own type parameter, independent of the trait."
+      },
+      {
+        "code": "    type Repeated<const N: usize>;",
+        "explanation": "This associated type has its own const parameter."
+      },
+      {
+        "code": "    const VALUE: u32;",
+        "explanation": "An associated constant without a default must be supplied by implementations."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the trait declaring the associated type families."
+      },
+      {
+        "code": "impl Family for FamilyImpl {",
+        "explanation": "Implement the associated families and required constant for a concrete type."
+      },
+      {
+        "code": "    type Borrowed<'a> = &'a u32 where Self: 'a;",
+        "explanation": "The lifetime-parameterized associated type denotes a borrowed integer."
+      },
+      {
+        "code": "    type Wrapped<T> = Option<T>;",
+        "explanation": "The type-parameterized associated type wraps its argument in Option."
+      },
+      {
+        "code": "    type Repeated<const N: usize> = [u8; N];",
+        "explanation": "The const-parameterized associated type produces an array of the requested length."
+      },
+      {
+        "code": "    const VALUE: u32 = 6;",
+        "explanation": "A trait implementation supplies the required associated constant."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the trait implementation."
+      },
+      {
+        "code": "impl FamilyImpl {",
+        "explanation": "An inherent implementation defines methods independently of a trait."
+      },
+      {
+        "code": "    async fn value(&self) -> u32 { <Self as Family>::VALUE }",
+        "explanation": "An inherent async method returns a future that will yield the associated constant when polled."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the inherent implementation."
+      },
+      {
+        "code": "const extern \"C\" fn constant_identity(value: u32) -> u32 { value }",
+        "explanation": "A safe const extern function combines const evaluation with an explicit calling convention."
+      },
+      {
+        "code": "const unsafe extern \"C\" fn unsafe_constant_identity(value: u32) -> u32 { value }",
+        "explanation": "An unsafe const extern declaration requires an unsafe call; this body has no additional safety preconditions."
+      },
+      {
+        "code": "const SAFE_VALUE: u32 = constant_identity(8);",
+        "explanation": "Calling the safe const extern function in a constant initializer forces const evaluation."
+      },
+      {
+        "code": "const UNSAFE_VALUE: u32 = unsafe { unsafe_constant_identity(9) };",
+        "explanation": "Calling this unsafe const function is sound because its body only returns its integer argument."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Open the associated-item and async syntax demonstrations."
+      },
+      {
+        "code": "    let value = 7;",
+        "explanation": "Provide a live integer for the borrowed associated type."
+      },
+      {
+        "code": "    let borrowed: <FamilyImpl as Family>::Borrowed<'_> = &value;",
+        "explanation": "A qualified associated type projection supplies its lifetime argument."
+      },
+      {
+        "code": "    let wrapped: <FamilyImpl as Family>::Wrapped<u32> = Some(7);",
+        "explanation": "A qualified type projection supplies a type argument."
+      },
+      {
+        "code": "    let repeated: <FamilyImpl as Family>::Repeated<3> = [1; 3];",
+        "explanation": "A qualified type projection supplies a const argument to choose the array length."
+      },
+      {
+        "code": "    let instance = FamilyImpl;",
+        "explanation": "Create a receiver for the inherent async method."
+      },
+      {
+        "code": "    let _pending_method = instance.value();",
+        "explanation": "Calling the async method creates a future; this example type-checks it without polling it."
+      },
+      {
+        "code": "    let asynchronous = async |n: u32| { n + 1 };",
+        "explanation": "An async closure has async on the closure itself, rather than returning a separate async block."
+      },
+      {
+        "code": "    let _pending_closure = asynchronous(1);",
+        "explanation": "Calling the async closure creates another future that is deliberately not polled here."
+      },
+      {
+        "code": "    assert_eq!((*borrowed, wrapped, repeated, FamilyImpl::VALUE), (7, Some(7), [1; 3], 6));",
+        "explanation": "Verify the values represented by the associated types and constant."
+      },
+      {
+        "code": "    assert_eq!((SAFE_VALUE, UNSAFE_VALUE), (8, 9));",
+        "explanation": "Verify the results produced by safe and unsafe const extern function evaluation."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the associated-item and async syntax demonstrations."
+      }
+    ]
+  },
+  {
+    "id": "grammar_forms",
+    "intended_requirements": [
+      "grammar.ArrayElements",
+      "grammar.ArrayExpression",
+      "grammar.BreakExpression",
+      "grammar.CallParams",
+      "grammar.ContinueExpression",
+      "grammar.TupleElements",
+      "grammar.TupleType"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "fn sum3(a: i32, b: i32, c: i32) -> i32 { a + b + c }",
+        "explanation": "A three-argument function supplies a call with multiple repeated argument separators."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Open examples selected by the Reference grammar gap report."
+      },
+      {
+        "code": "    let empty: [u8; 0] = [];",
+        "explanation": "An empty array expression omits its optional ArrayElements group."
+      },
+      {
+        "code": "    let single = [1];",
+        "explanation": "One listed array element uses zero comma-expression repetitions and no trailing comma."
+      },
+      {
+        "code": "    let pair = [1, 2,];",
+        "explanation": "Two array elements use one comma-expression repetition and an optional trailing comma."
+      },
+      {
+        "code": "    let unit: () = ();",
+        "explanation": "The unit tuple type and expression both omit their element lists."
+      },
+      {
+        "code": "    let singleton: (i32,) = (3,);",
+        "explanation": "A one-element tuple needs its comma; the trailing optional type or expression is absent."
+      },
+      {
+        "code": "    let tuple: (i32, i32,) = (4, 5,);",
+        "explanation": "Two comma-terminated tuple elements demonstrate multiple repetitions and no final uncommaed element."
+      },
+      {
+        "code": "    let sum = sum3(1, 2, 3,);",
+        "explanation": "A call with three arguments demonstrates multiple comma-argument repetitions and a trailing comma."
+      },
+      {
+        "code": "    loop { break; }",
+        "explanation": "An unlabeled break without a value exits this infinite-loop expression immediately."
+      },
+      {
+        "code": "    let mut visits = 0;",
+        "explanation": "Count iterations that reach the body after its continue condition."
+      },
+      {
+        "code": "    for n in 0..2 { if n == 0 { continue; } visits += 1; }",
+        "explanation": "A continue expression without a label skips to the next iteration of the innermost loop."
+      },
+      {
+        "code": "    assert_eq!((empty.len(), single, pair, unit, singleton, tuple, sum, visits), (0, [1], [1, 2], (), (3,), (4, 5), 6, 1));",
+        "explanation": "Verify the collection, call, and control-flow results represented by the grammar examples."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the Reference grammar demonstrations."
+      }
+    ]
+  },
+  {
+    "id": "type_forms",
+    "intended_requirements": [
+      "grammar.BareFunctionType",
+      "grammar.FunctionTypeQualifiers",
+      "grammar.BareFunctionReturnType",
+      "grammar.FunctionParametersMaybeNamedVariadic",
+      "grammar.MaybeNamedFunctionParameters",
+      "grammar.MaybeNamedParam",
+      "grammar.MaybeNamedFunctionParametersVariadic",
+      "grammar.Abi",
+      "grammar.ForLifetimes",
+      "grammar.RawPointerType",
+      "grammar.ReferenceType"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "type Plain = fn();",
+        "explanation": "A function pointer type can omit parameters, qualifiers, and its unit return type."
+      },
+      {
+        "code": "type Unsafe = unsafe fn();",
+        "explanation": "Calling an unsafe function pointer requires its caller to uphold the function contract."
+      },
+      {
+        "code": "#[allow(missing_abi)]",
+        "explanation": "This example deliberately omits an ABI name to demonstrate the implicit C ABI spelling."
+      },
+      {
+        "code": "type ImplicitAbi = extern fn();",
+        "explanation": "An extern function pointer without a string uses the default C ABI."
+      },
+      {
+        "code": "type ExplicitAbi = extern \"C\" fn();",
+        "explanation": "A cooked string explicitly selects the C calling convention."
+      },
+      {
+        "code": "type RawAbi = extern r\"C\" fn();",
+        "explanation": "A raw string can spell the same explicit ABI name."
+      },
+      {
+        "code": "type Borrow = for<'a> fn(&'a u32) -> &'a u32;",
+        "explanation": "A higher-ranked binder makes this pointer accept a reference with any caller-chosen lifetime."
+      },
+      {
+        "code": "type EmptyBinder = for<> fn();",
+        "explanation": "A written higher-ranked binder can contain no generic parameters."
+      },
+      {
+        "code": "type Named = fn(value: u32, _: u32);",
+        "explanation": "Function pointer parameters can have documentary names or an underscore name."
+      },
+      {
+        "code": "type Attributed = fn(#[allow(unused_variables)] u32, #[allow(unused_variables)] #[allow(dead_code)] u32, u32,);",
+        "explanation": "Outer attributes attach to individual parameters; the final comma is optional."
+      },
+      {
+        "code": "type VariadicOne = unsafe extern \"C\" fn(i32, ...);",
+        "explanation": "A variadic C function pointer type has one fixed parameter and an ellipsis; no call is made."
+      },
+      {
+        "code": "type VariadicTwo = unsafe extern \"C\" fn(i32, i32, #[allow(unused_variables)] ...);",
+        "explanation": "Two fixed parameters precede an ellipsis carrying one outer attribute."
+      },
+      {
+        "code": "type VariadicThree = unsafe extern \"C\" fn(i32, i32, i32, #[allow(unused_variables)] #[allow(dead_code)] ...);",
+        "explanation": "Three fixed parameters and two ellipsis attributes demonstrate repeated grammar elements."
+      },
+      {
+        "code": "fn identity(value: &u32) -> &u32 { value }",
+        "explanation": "Lifetime elision ties the returned reference to the only input reference."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Run the portable type examples while leaving foreign and variadic pointer types uncalled."
+      },
+      {
+        "code": "    let borrow: Borrow = identity;",
+        "explanation": "A function item coerces to a pointer whose signature has a higher-ranked lifetime."
+      },
+      {
+        "code": "    let mut value = 7u32;",
+        "explanation": "A mutable local owns the value used by the reference and pointer examples."
+      },
+      {
+        "code": "    let shared: &u32 = borrow(&value);",
+        "explanation": "An explicitly written shared reference type describes the returned borrow."
+      },
+      {
+        "code": "    assert_eq!(*shared, 7);",
+        "explanation": "The selected function pointer preserves the referenced value."
+      },
+      {
+        "code": "    let unique: &mut u32 = &mut value;",
+        "explanation": "An explicitly written mutable reference type provides exclusive access for this borrow."
+      },
+      {
+        "code": "    *unique += 1;",
+        "explanation": "A safe mutable-reference dereference changes the live local value."
+      },
+      {
+        "code": "    let raw_mut: *mut u32 = &raw mut value;",
+        "explanation": "A mutable raw pointer type and raw borrow form a pointer to the live local without dereferencing it."
+      },
+      {
+        "code": "    let raw_const: *const u32 = &raw const value;",
+        "explanation": "A const raw pointer type permits observing the address; this example does not dereference it."
+      },
+      {
+        "code": "    assert_eq!(raw_mut.cast_const(), raw_const);",
+        "explanation": "Both raw pointers identify the same local allocation; comparing them requires no unsafe access."
+      },
+      {
+        "code": "    assert_eq!(value, 8);",
+        "explanation": "The earlier exclusive borrow incremented the original value."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the type showcase function."
+      }
+    ]
+  },
+  {
+    "id": "structural_forms",
+    "intended_requirements": [
+      "grammar.StructExpression",
+      "grammar.StructExprFields",
+      "grammar.StructExprField",
+      "grammar.StructBase",
+      "grammar.StructPattern",
+      "grammar.StructPatternElements",
+      "grammar.StructPatternFields",
+      "grammar.StructPatternField",
+      "grammar.StructPatternEtCetera",
+      "grammar.TuplePattern",
+      "grammar.TuplePatternItems",
+      "grammar.TupleStructPattern",
+      "grammar.TupleStructItems",
+      "grammar.SlicePattern",
+      "grammar.SlicePatternItems",
+      "grammar.GroupedPattern",
+      "grammar.RestPattern"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "struct Empty {}",
+        "explanation": "An empty named-field struct has braces but no fields."
+      },
+      {
+        "code": "struct Triple { a: i32, b: i32, c: i32 }",
+        "explanation": "Three fields let the showcase vary field-list cardinality and update syntax."
+      },
+      {
+        "code": "struct Positional(i32, i32, i32);",
+        "explanation": "A tuple struct can be constructed or destructured using positional field names."
+      },
+      {
+        "code": "struct Zero();",
+        "explanation": "A zero-field tuple struct still uses a pair of constructor parentheses."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Run the struct and pattern grammar examples and check their results."
+      },
+      {
+        "code": "    let Empty {} = Empty {};",
+        "explanation": "Empty struct construction and an empty struct pattern each omit their optional field list."
+      },
+      {
+        "code": "    let a = 1;",
+        "explanation": "A local binding provides a value for field shorthand construction."
+      },
+      {
+        "code": "    let original = Triple { a, b: 2, c: 3, };",
+        "explanation": "Shorthand and explicit fields coexist; the final comma belongs to the struct expression."
+      },
+      {
+        "code": "    let updated = Triple { a: 10, ..original };",
+        "explanation": "An update base supplies the fields not listed explicitly."
+      },
+      {
+        "code": "    let mut copied = Triple { ..updated };",
+        "explanation": "A base-only struct expression has no explicit field entries."
+      },
+      {
+        "code": "    let Triple { .. } = copied;",
+        "explanation": "A rest-only struct pattern discards all fields without naming any."
+      },
+      {
+        "code": "    let Triple { a: first, b: second, c: third, } = copied;",
+        "explanation": "A three-field pattern has its own optional final comma."
+      },
+      {
+        "code": "    let Triple { ref a, ref mut b, c: mut last } = copied;",
+        "explanation": "Shorthand ref bindings borrow fields; the explicit final field creates a mutable value binding."
+      },
+      {
+        "code": "    *b += 1;",
+        "explanation": "Mutate the second field through its exclusive reference."
+      },
+      {
+        "code": "    last += 1;",
+        "explanation": "Mutate the copied value bound by the explicit field pattern."
+      },
+      {
+        "code": "    assert_eq!((*a, *b, last), (10, 3, 4));",
+        "explanation": "Verify shared and exclusive field bindings and the separate mutable copy."
+      },
+      {
+        "code": "    let Triple { mut a, .. } = copied;",
+        "explanation": "A shorthand mut binding combines an explicitly selected field with a rest pattern."
+      },
+      {
+        "code": "    a += 1;",
+        "explanation": "The shorthand binding owns its integer copy and can change independently."
+      },
+      {
+        "code": "    let attributed = Triple { #[allow(unused_variables)] a: 4, #[allow(unused_variables)] #[allow(dead_code)] b: 5, c: 6 };",
+        "explanation": "One or multiple outer attributes attach to individual construction fields."
+      },
+      {
+        "code": "    let Triple { #[allow(unused_variables)] a: attr_a, #[allow(unused_variables)] #[allow(unused_mut)] b: attr_b, c: attr_c } = attributed;",
+        "explanation": "Destructuring fields also accept one or multiple outer attributes."
+      },
+      {
+        "code": "    let Positional { 0: left, 1: middle, 2: right } = Positional { 0: 7, 1: 8, 2: 9 };",
+        "explanation": "Integer tuple indices name positional fields in brace-style construction and destructuring."
+      },
+      {
+        "code": "    let Zero() = Zero();",
+        "explanation": "A tuple-struct pattern with no elements omits its optional pattern list."
+      },
+      {
+        "code": "    let Positional(p, q, r,) = Positional(7, 8, 9);",
+        "explanation": "Three tuple-struct subpatterns exercise repeated elements and an outer trailing comma."
+      },
+      {
+        "code": "    let () = ();",
+        "explanation": "An empty tuple pattern omits its optional elements."
+      },
+      {
+        "code": "    let (single,) = (11,);",
+        "explanation": "A singleton tuple pattern requires its comma to distinguish it from grouping."
+      },
+      {
+        "code": "    let (..) = (1, 2, 3);",
+        "explanation": "A rest-only tuple pattern matches the entire tuple without individual bindings."
+      },
+      {
+        "code": "    let (pair_a, pair_b,) = (12, 13);",
+        "explanation": "A tuple pattern with multiple entries can also end in a comma."
+      },
+      {
+        "code": "    let empty: [i32; 0] = [];",
+        "explanation": "Fix the element type of an empty array before matching it."
+      },
+      {
+        "code": "    let [] = empty;",
+        "explanation": "An empty slice pattern omits its optional element list."
+      },
+      {
+        "code": "    let [one] = [14];",
+        "explanation": "A one-element slice pattern has no repeated comma-and-pattern entries."
+      },
+      {
+        "code": "    let [start, center, end,] = [15, 16, 17];",
+        "explanation": "Three slice subpatterns and a trailing comma cover the longer list form."
+      },
+      {
+        "code": "    assert_eq!((first, second, third, a), (10, 2, 3, 11));",
+        "explanation": "The field update and copied bindings preserve the expected values."
+      },
+      {
+        "code": "    assert_eq!((attr_a, attr_b, attr_c), (4, 5, 6));",
+        "explanation": "Field attributes leave the constructed and destructured values intact."
+      },
+      {
+        "code": "    assert_eq!((left, middle, right), (p, q, r));",
+        "explanation": "Brace-style positional patterns and tuple-struct patterns extract equivalent values."
+      },
+      {
+        "code": "    assert_eq!((single, pair_a, pair_b, one, start, center, end), (11, 12, 13, 14, 15, 16, 17));",
+        "explanation": "Verify the bindings produced by tuple and slice pattern forms."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the structural grammar demonstration."
+      }
+    ]
+  },
+  {
+    "id": "resolved_patterns",
+    "intended_requirements": [
+      "grammar.IdentifierPattern",
+      "grammar.PathPattern",
+      "grammar.LiteralPattern",
+      "grammar.ModernRangePattern",
+      "grammar.RangeExclusivePattern",
+      "grammar.RangeInclusivePattern",
+      "grammar.RangeFromPattern",
+      "grammar.RangeToExclusivePattern",
+      "grammar.RangeToInclusivePattern",
+      "grammar.RangePatternBound",
+      "grammar.WildcardPattern"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "const LOWER: i32 = 3;",
+        "explanation": "A named constant can serve as a range-pattern bound."
+      },
+      {
+        "code": "const UPPER: i32 = 5;",
+        "explanation": "This constant supplies the excluded upper end of the constant-bounded range."
+      },
+      {
+        "code": "struct Marker;",
+        "explanation": "A unit struct name can denote a path pattern rather than introducing a new binding."
+      },
+      {
+        "code": "fn classify(value: i32) -> u8 {",
+        "explanation": "A parameter identifier introduces a local binding according to the compiler resolver."
+      },
+      {
+        "code": "    match value {",
+        "explanation": "Select a result using four complementary ranges and a single negative literal."
+      },
+      {
+        "code": "        -3 => 1,",
+        "explanation": "A minus before a literal belongs to LiteralPattern rather than to an arithmetic negation expression."
+      },
+      {
+        "code": "        ..-3 => 2,",
+        "explanation": "An upper-exclusive range pattern matches all integers below negative three."
+      },
+      {
+        "code": "        -2..=2 => 3,",
+        "explanation": "An inclusive bounded range pattern includes both written endpoints."
+      },
+      {
+        "code": "        LOWER..UPPER => 4,",
+        "explanation": "An exclusive bounded range pattern resolves its endpoints as constant paths."
+      },
+      {
+        "code": "        5.. => 5,",
+        "explanation": "A lower-bounded range pattern matches five and every larger integer."
+      },
+      {
+        "code": "    }",
+        "explanation": "Close the exhaustive integer match."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the range classification function."
+      },
+      {
+        "code": "fn nonnegative(value: i32) -> i32 {",
+        "explanation": "Accept another ordinary identifier binding."
+      },
+      {
+        "code": "    match value { ..=0 => 0, positive => positive }",
+        "explanation": "An upper-inclusive range pattern handles nonpositive inputs and a fresh binding handles the remainder."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the nonnegative conversion function."
+      },
+      {
+        "code": "fn marker(value: Marker) -> bool {",
+        "explanation": "Accept a unit struct value without inspecting fields."
+      },
+      {
+        "code": "    match value { Marker => true }",
+        "explanation": "The resolver identifies Marker as a constructor path, not a newly bound variable."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the constructor-path pattern example."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Run the literal, range, and resolved-name pattern examples."
+      },
+      {
+        "code": "    let actual = [classify(-4), classify(-3), classify(0), classify(3), classify(5)];",
+        "explanation": "These calls exercise the distinct match arms; their negative arguments are actual negation expressions."
+      },
+      {
+        "code": "    assert_eq!(actual, [2, 1, 3, 4, 5]);",
+        "explanation": "Verify the selected result for each range or literal branch."
+      },
+      {
+        "code": "    let bounded = [nonnegative(-7), nonnegative(0), nonnegative(9)];",
+        "explanation": "Exercise the upper-inclusive range and the fallback identifier binding."
+      },
+      {
+        "code": "    assert_eq!(bounded, [0, 0, 9]);",
+        "explanation": "Verify that only positive inputs survive the conversion."
+      },
+      {
+        "code": "    let is_marker = marker(Marker);",
+        "explanation": "Construct the unit struct and pass it through the path-pattern match."
+      },
+      {
+        "code": "    assert!(is_marker);",
+        "explanation": "Verify that the unit constructor pattern matches its value."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the resolved-pattern demonstration."
+      }
+    ]
+  },
+  {
+    "id": "additional_features",
+    "intended_requirements": [
+      "feature.destructuring_assignment",
+      "feature.loop_break_value",
+      "feature.label_break_value",
+      "feature.if_let_guard",
+      "feature.slice_patterns",
+      "feature.bindings_after_at",
+      "feature.or_patterns",
+      "feature.relaxed_adts",
+      "feature.struct_field_attributes",
+      "feature.param_attrs",
+      "feature.generic_param_attrs",
+      "feature.pub_restricted"
+    ],
+    "prerequisites": [],
+    "configuration": "stable",
+    "lines": [
+      {
+        "code": "struct Pair { left: i32, right: i32 }",
+        "explanation": "Named fields support brace-style destructuring assignment."
+      },
+      {
+        "code": "struct Positional(i32, i32);",
+        "explanation": "A tuple constructor supports positional destructuring assignment."
+      },
+      {
+        "code": "pub(self) fn restricted() -> i32 { 7 }",
+        "explanation": "An explicit self restriction makes this function visible only within its module."
+      },
+      {
+        "code": "fn attributed<#[allow(unused_lifetimes)] 'a, #[allow(dead_code)] T, #[allow(unused_variables)] const N: usize>(#[allow(unused_variables)] values: &'a [T; N]) -> usize {",
+        "explanation": "Outer attributes annotate lifetime, type, and const generic parameters as well as an ordinary function parameter."
+      },
+      {
+        "code": "    values.len()",
+        "explanation": "The generic function returns the length encoded by its array parameter type."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the attributed generic function."
+      },
+      {
+        "code": "fn guarded(input: Option<i32>) -> i32 {",
+        "explanation": "A helper exercises simple and chained let guards in match arms."
+      },
+      {
+        "code": "    match input {",
+        "explanation": "Each arm first matches a value and then checks its own guard."
+      },
+      {
+        "code": "        value if let Some(number) = value && number > 5 => number,",
+        "explanation": "A let guard and Boolean condition form a conjunction in this match-arm guard."
+      },
+      {
+        "code": "        value if let Some(number) = value => number + 1,",
+        "explanation": "A direct if-let guard exposes its successful binding to the arm body."
+      },
+      {
+        "code": "        _ => 0,",
+        "explanation": "The wildcard handles a missing option when both let guards fail."
+      },
+      {
+        "code": "    }",
+        "explanation": "Close the match containing the two guard forms."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the match-guard helper."
+      },
+      {
+        "code": "pub fn demonstrate() {",
+        "explanation": "Run the additional accepted-syntax examples and assertions."
+      },
+      {
+        "code": "    let (mut left, mut right) = (0, 0);",
+        "explanation": "Create mutable places before assigning through compound assignees."
+      },
+      {
+        "code": "    [left, right] = [1, 2];",
+        "explanation": "An array assignee distributes the two incoming values into existing locals."
+      },
+      {
+        "code": "    assert_eq!((left, right), (1, 2));",
+        "explanation": "Verify the array destructuring assignment."
+      },
+      {
+        "code": "    Pair { left, right } = Pair { left: 3, right: 4 };",
+        "explanation": "A brace-style assignee assigns named fields into existing places."
+      },
+      {
+        "code": "    assert_eq!((left, right), (3, 4));",
+        "explanation": "Verify the struct destructuring assignment."
+      },
+      {
+        "code": "    Positional(left, right) = Positional(5, 6);",
+        "explanation": "A tuple-constructor assignee assigns positional fields without declaring new bindings."
+      },
+      {
+        "code": "    assert_eq!((left, right), (5, 6));",
+        "explanation": "Verify the positional destructuring assignment."
+      },
+      {
+        "code": "    [left, .., right] = [10, 11, 12];",
+        "explanation": "A rest assignee discards the middle value while assigning the two endpoints."
+      },
+      {
+        "code": "    _ = Some(9);",
+        "explanation": "An underscore assignee explicitly discards a value without introducing a pattern binding."
+      },
+      {
+        "code": "    assert_eq!((left, right), (10, 12));",
+        "explanation": "Verify that the rest assignee preserved only the selected endpoints."
+      },
+      {
+        "code": "    let loop_value = 'answer: loop { break 'answer 9; };",
+        "explanation": "The value-carrying labeled break targets a loop rather than a labeled block."
+      },
+      {
+        "code": "    'finished: { break 'finished; }",
+        "explanation": "A labeled block can also be exited without an explicit value, producing unit."
+      },
+      {
+        "code": "    let whole @ Some(inner) = Some(2) else { return; };",
+        "explanation": "An at-pattern binds the complete option and a real nested binding captures its payload."
+      },
+      {
+        "code": "    let Some(0 | 1) = Some(1) else { return; };",
+        "explanation": "The alternatives are nested inside a constructor pattern rather than forming a top-level match arm."
+      },
+      {
+        "code": "    let [first, .., last] = [10, 20, 30];",
+        "explanation": "An unbound rest subpattern discards the middle of an array through slice-pattern syntax."
+      },
+      {
+        "code": "    let array_length = attributed(&[1u8, 2, 3]);",
+        "explanation": "Instantiate the attributed type, lifetime, and const parameters."
+      },
+      {
+        "code": "    assert_eq!((whole, inner, first, last, loop_value), (Some(2), 2, 10, 30, 9));",
+        "explanation": "Verify the nested binding, slice rest, and loop result."
+      },
+      {
+        "code": "    assert_eq!((array_length, restricted()), (3, 7));",
+        "explanation": "Check the attributed generic function and the self-restricted function."
+      },
+      {
+        "code": "    let guard_results = [guarded(Some(7)), guarded(Some(2)), guarded(None)];",
+        "explanation": "Exercise the chained guard, the simple guard, and their fallback."
+      },
+      {
+        "code": "    assert_eq!(guard_results, [7, 3, 0]);",
+        "explanation": "Verify which guarded match arm supplied each result."
+      },
+      {
+        "code": "}",
+        "explanation": "Close the additional accepted-feature demonstration."
+      }
+    ]
+  }
+]

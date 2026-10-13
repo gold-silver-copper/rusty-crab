@@ -1,0 +1,2906 @@
+{
+  "ast.AngleBracketedArg.Arg": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AngleBracketedArg.Constraint": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssignOpKind.AddAssign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssignOpKind.BitAndAssign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssignOpKind.BitOrAssign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssignOpKind.BitXorAssign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssignOpKind.DivAssign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssignOpKind.MulAssign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssignOpKind.RemAssign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssignOpKind.ShlAssign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssignOpKind.ShrAssign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssignOpKind.SubAssign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssocItemConstraintKind.Bound": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssocItemConstraintKind.Equality": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssocItemKind.Const": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssocItemKind.Fn": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AssocItemKind.MacCall": {
+    "applicability": "applicable",
+    "reason": "Invocation position from a separate compiler parse, matched to a source-written macro call site in the actual compiler expansion chain. Calls without retained expansion evidence remain missing.",
+    "detector": "rustc_macro_v1"
+  },
+  "ast.AssocItemKind.Type": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AttrArgs.Delimited": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AttrArgs.Empty": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AttrArgs.Eq": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AttrKind.DocComment": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AttrKind.Normal": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AttrKind.Synthetic": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-generated attribute wrapper, not writable source syntax.",
+    "detector": null
+  },
+  "ast.AttrStyle.Inner": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.AttrStyle.Outer": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Add": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.And": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.BitAnd": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.BitOr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.BitXor": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Div": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Eq": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Ge": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Gt": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Le": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Lt": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Mul": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Ne": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Or": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Rem": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Shl": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Shr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BinOpKind.Sub": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BlockCheckMode.Default": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BlockCheckMode.Unsafe": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BorrowKind.Raw": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BorrowKind.Ref": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BoundAsyncness.Async": {
+    "applicability": "inapplicable",
+    "reason": "The async_trait_bounds feature is listed as unstable in pinned compiler/rustc_feature/src/unstable.rs; async closures are a separate stabilized feature.",
+    "detector": null
+  },
+  "ast.BoundAsyncness.Normal": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BoundConstness.Never": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BoundPolarity.Maybe": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.BoundPolarity.Positive": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ByRef.No": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ByRef.Yes": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.CaptureBy.Ref": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.CaptureBy.Value": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Const.No": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Const.Yes": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.CoroutineKind.Async": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Defaultness.Implicit": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.AddrOf": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Array": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Assign": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.AssignOp": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Await": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Binary": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Block": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Break": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Call": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Cast": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Closure": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.ConstBlock": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Continue": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Dummy": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "ast.ExprKind.Err": {
+    "applicability": "inapplicable",
+    "reason": "ErrorGuaranteed recovery node; not a valid positive source construct.",
+    "detector": null
+  },
+  "ast.ExprKind.Field": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.ForLoop": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.FormatArgs": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "ast.ExprKind.Gen": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.If": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.IncludedBytes": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "ast.ExprKind.Index": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Let": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Lit": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Loop": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.MacCall": {
+    "applicability": "applicable",
+    "reason": "Invocation position from a separate compiler parse, matched to a source-written macro call site in the actual compiler expansion chain. Calls without retained expansion evidence remain missing.",
+    "detector": "rustc_macro_v1"
+  },
+  "ast.ExprKind.Match": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.MethodCall": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Paren": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Path": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Range": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Repeat": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Ret": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Struct": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Try": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Tup": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Unary": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.Underscore": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ExprKind.While": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Extern.Explicit": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Extern.Implicit": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Extern.None": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.FnRetTy.Default": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.FnRetTy.Ty": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ForLoopKind.For": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ForeignItemKind.Fn": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ForeignItemKind.MacCall": {
+    "applicability": "applicable",
+    "reason": "Invocation position from a separate compiler parse, matched to a source-written macro call site in the actual compiler expansion chain. Calls without retained expansion evidence remain missing.",
+    "detector": "rustc_macro_v1"
+  },
+  "ast.ForeignItemKind.Static": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenBlockKind.Async": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericArg.Const": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericArg.Lifetime": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericArg.Type": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericArgs.AngleBracketed": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericArgs.Parenthesized": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericBound.Outlives": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericBound.Trait": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericBound.Use": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericParamKind.Const": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericParamKind.Lifetime": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.GenericParamKind.Type": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ImplPolarity.Positive": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Inline.No": {
+    "applicability": "applicable",
+    "reason": "An outlined mod name; declaration is parsed as ModKind::Unloaded and becomes Loaded with Inline::No after loading its file. The audit requires both matching source declaration and active compiler module evidence; this correspondence is derived from the pinned ModKind documentation.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Inline.Yes": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.IsAuto.No": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.Const": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.Enum": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.ExternCrate": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.Fn": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.ForeignMod": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.Impl": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.MacCall": {
+    "applicability": "applicable",
+    "reason": "Invocation position from a separate compiler parse, matched to a source-written macro call site in the actual compiler expansion chain. Calls without retained expansion evidence remain missing.",
+    "detector": "rustc_macro_v1"
+  },
+  "ast.ItemKind.MacroDef": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.Mod": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.Static": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.Struct": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.Trait": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.TyAlias": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.Union": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ItemKind.Use": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitFloatType.Suffixed": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitFloatType.Unsuffixed": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitIntType.Signed": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitIntType.Unsigned": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitIntType.Unsuffixed": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitKind.Bool": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitKind.Byte": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitKind.ByteStr": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitKind.CStr": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitKind.Char": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitKind.Err": {
+    "applicability": "inapplicable",
+    "reason": "ErrorGuaranteed recovery literal; not a valid positive source construct.",
+    "detector": null
+  },
+  "ast.LitKind.Float": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitKind.Int": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LitKind.Str": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LocalKind.Decl": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LocalKind.Init": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.LocalKind.InitElse": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.MacStmtStyle.Braces": {
+    "applicability": "applicable",
+    "reason": "Parsed macro statement style with independently observed compiler expansion at the same source call site.",
+    "detector": "rustc_macro_v1"
+  },
+  "ast.MacStmtStyle.NoBraces": {
+    "applicability": "applicable",
+    "reason": "Pinned rustc_parse/src/parser/stmt.rs:248-276 assigns NoBraces before converting semicolon-free parentheses/brackets macros to expression statements. Recover that spelling from the unexpanded AST and require its actual expansion call site.",
+    "detector": "rustc_macro_v1"
+  },
+  "ast.MacStmtStyle.Semicolon": {
+    "applicability": "applicable",
+    "reason": "Parsed macro statement style with independently observed compiler expansion at the same source call site.",
+    "detector": "rustc_macro_v1"
+  },
+  "ast.MatchKind.Prefix": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.MetaItemInner.Lit": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.MetaItemInner.MetaItem": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.MetaItemKind.List": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.MetaItemKind.NameValue": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.MetaItemKind.Word": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.ModKind.Loaded": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatFieldsRest.None": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatFieldsRest.Recovered": {
+    "applicability": "inapplicable",
+    "reason": "ErrorGuaranteed recovery marker; not a valid positive source construct.",
+    "detector": null
+  },
+  "ast.PatFieldsRest.Rest": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Err": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "ast.PatKind.Expr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Ident": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.MacCall": {
+    "applicability": "applicable",
+    "reason": "Invocation position from a separate compiler parse, matched to a source-written macro call site in the actual compiler expansion chain. Calls without retained expansion evidence remain missing.",
+    "detector": "rustc_macro_v1"
+  },
+  "ast.PatKind.Or": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Paren": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Path": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Range": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Ref": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Rest": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Slice": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Struct": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Tuple": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.TupleStruct": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.PatKind.Wild": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.RangeEnd.Excluded": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.RangeEnd.Included": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.RangeLimits.Closed": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.RangeLimits.HalfOpen": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.RangeSyntax.DotDotDot": {
+    "applicability": "inapplicable",
+    "reason": "Legacy inclusive range pattern spelling is not accepted by the 2024 profile.",
+    "detector": null
+  },
+  "ast.RangeSyntax.DotDotEq": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Safety.Default": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Safety.Safe": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.Safety.Unsafe": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.SelfKind.Explicit": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.SelfKind.Region": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.SelfKind.Value": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.StmtKind.Empty": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.StmtKind.Expr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.StmtKind.Item": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.StmtKind.Let": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.StmtKind.MacCall": {
+    "applicability": "applicable",
+    "reason": "Invocation position from a separate compiler parse, matched to a source-written macro call site in the actual compiler expansion chain. Calls without retained expansion evidence remain missing.",
+    "detector": "rustc_macro_v1"
+  },
+  "ast.StmtKind.Semi": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.StrStyle.Cooked": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.StrStyle.Raw": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.StructRest.Base": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.StructRest.None": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.StructRest.NoneWithError": {
+    "applicability": "inapplicable",
+    "reason": "ErrorGuaranteed recovery marker; not a valid positive source construct.",
+    "detector": null
+  },
+  "ast.SyntheticAttr.CfgAttrTrace": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-inserted trace of cfg_attr processing, not writable source syntax.",
+    "detector": null
+  },
+  "ast.SyntheticAttr.CfgTrace": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-inserted trace of cfg processing, not writable source syntax.",
+    "detector": null
+  },
+  "ast.Term.Ty": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TraitObjectSyntax.Dyn": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TraitObjectSyntax.None": {
+    "applicability": "inapplicable",
+    "reason": "Bare trait object types without dyn belong to pre-2021 edition profiles.",
+    "detector": null
+  },
+  "ast.TyKind.Array": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.CVarArgs": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.Dummy": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "ast.TyKind.Err": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "ast.TyKind.FnPtr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.ImplTrait": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.ImplicitSelf": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.Infer": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.MacCall": {
+    "applicability": "applicable",
+    "reason": "Invocation position from a separate compiler parse, matched to a source-written macro call site in the actual compiler expansion chain. Calls without retained expansion evidence remain missing.",
+    "detector": "rustc_macro_v1"
+  },
+  "ast.TyKind.Never": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.Paren": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.Path": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.Ptr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.Ref": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.Slice": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.TraitObject": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.TyKind.Tup": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.UnOp.Deref": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.UnOp.Neg": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.UnOp.Not": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.UseTreeKind.Glob": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.UseTreeKind.Nested": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.UseTreeKind.Simple": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.VariantData.Struct": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.VariantData.Tuple": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.VariantData.Unit": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.VisibilityKind.Inherited": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.VisibilityKind.Public": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.VisibilityKind.Restricted": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.WherePredicateKind.BoundPredicate": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "ast.WherePredicateKind.RegionPredicate": {
+    "applicability": "applicable",
+    "reason": "Reviewed source-syntax distinction in the pinned compiler; observed by the expanded AST visitor before lowering.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.allow": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.cold": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.crate_name": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.crate_type": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.deny": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.deprecated": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.doc": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.expect": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.export_name": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.forbid": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.inline": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.link": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.link_name": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.link_ordinal": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.link_section": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.macro_export": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.macro_use": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.must_use": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.no_implicit_prelude": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.no_link": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.no_main": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.no_mangle": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.no_std": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.non_exhaustive": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.panic_handler": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.recursion_limit": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.repr": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.track_caller": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.type_length_limit": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.used": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "attribute.warn": {
+    "applicability": "applicable",
+    "reason": "Stable built-in attribute; visitor proves attribute presence only, not every argument form or code-generation consequence.",
+    "detector": "rustc_ast_visitor_v1"
+  },
+  "feature.associated_consts": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and compiler AST/visitor context. All listed forms require active source-written compiler witnesses and successful compilation. This establishes accepted declarations and expressions, not runtime polling, arbitrary const evaluation, or every trait interaction.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "trait": "An associated constant declared in a trait.",
+      "inherent": "An associated constant defined in an inherent implementation.",
+      "trait_impl": "An associated constant defined in a trait implementation."
+    }
+  },
+  "feature.associated_type_bounds": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and compiler AST/visitor context. All listed forms require active source-written compiler witnesses and successful compilation. This establishes accepted declarations and expressions, not runtime polling, arbitrary const evaluation, or every trait interaction.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "bound": "An associated type constraint with bounds, distinct from an equality binding."
+    }
+  },
+  "feature.associated_types": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and compiler AST/visitor context. All listed forms require active source-written compiler witnesses and successful compilation. This establishes accepted declarations and expressions, not runtime polling, arbitrary const evaluation, or every trait interaction.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "trait": "An associated type declared in a trait.",
+      "trait_impl": "An associated type defined in a trait implementation."
+    }
+  },
+  "feature.async_await": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and compiler AST/visitor context. All listed forms require active source-written compiler witnesses and successful compilation. This establishes accepted declarations and expressions, not runtime polling, arbitrary const evaluation, or every trait interaction.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "free_fn": "A free async function, distinct from a trait method or closure.",
+      "inherent_fn": "An async function in an inherent implementation, distinct from a trait implementation.",
+      "block": "An async block expression.",
+      "await": "An await expression."
+    }
+  },
+  "feature.async_closure": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and compiler AST/visitor context. All listed forms require active source-written compiler witnesses and successful compilation. This establishes accepted declarations and expressions, not runtime polling, arbitrary const evaluation, or every trait interaction.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "closure": "An async closure, distinct from a closure returning an async block."
+    }
+  },
+  "feature.bindings_after_at": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior. The compiler resolver must identify an actual inner binding; a constant or unit-constructor name is insufficient.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "subpattern_binding": "An at-pattern contains a genuine binding in its subpattern, confirmed by compiler name resolution."
+    }
+  },
+  "feature.braced_empty_structs": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "struct": "An empty braced struct definition, distinct from a unit struct.",
+      "variant": "An empty braced enum variant definition, distinct from a unit variant."
+    }
+  },
+  "feature.const_extern_fn": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and compiler AST/visitor context. All listed forms require active source-written compiler witnesses and successful compilation. This establishes accepted declarations and expressions, not runtime polling, arbitrary const evaluation, or every trait interaction.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "safe": "A const extern function with default safety.",
+      "unsafe": "A const unsafe extern function."
+    }
+  },
+  "feature.destructuring_assignment": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "array": "A source-written assignment with an array assignee.",
+      "constructor": "A source-written assignment with tuple-constructor assignees.",
+      "discard": "An underscore expression occurs in an assignee position, explicitly discarding an incoming value.",
+      "rest": "A rest marker occurs in a compound assignee, not an ordinary value expression.",
+      "struct": "A source-written assignment with brace-style struct assignees.",
+      "tuple": "A source-written assignment with a tuple assignee."
+    }
+  },
+  "feature.dotdot_in_tuple_patterns": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "tuple": "A rest pattern immediately inside a tuple pattern.",
+      "tuple_struct": "A rest pattern immediately inside a tuple-struct or tuple-variant pattern."
+    }
+  },
+  "feature.dotdoteq_in_patterns": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "bounded": "A bounded pattern with the ..= inclusive separator."
+    }
+  },
+  "feature.exclusive_range_pattern": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "bounded": "A bounded pattern with the exclusive .. separator."
+    }
+  },
+  "feature.field_init_shorthand": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "field": "A struct initializer field whose compiler AST marks it as shorthand."
+    }
+  },
+  "feature.generic_associated_types": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and compiler AST/visitor context. All listed forms require active source-written compiler witnesses and successful compilation. This establishes accepted declarations and expressions, not runtime polling, arbitrary const evaluation, or every trait interaction.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "lifetime": "A trait associated type with its own lifetime parameter.",
+      "type": "A trait associated type with its own type parameter.",
+      "const": "A trait associated type with its own const parameter."
+    }
+  },
+  "feature.generic_param_attrs": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "lifetime": "An attributed lifetime generic parameter.",
+      "type": "An attributed type generic parameter.",
+      "const": "An attributed const generic parameter."
+    }
+  },
+  "feature.half_open_range_patterns": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "inclusive_upper": "A pattern with absent lower bound and ..= inclusive upper bound."
+    }
+  },
+  "feature.if_let": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "condition": "An if expression whose condition is a let-pattern match."
+    }
+  },
+  "feature.if_let_guard": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "simple": "A match arm has a direct if-let guard.",
+      "chain": "A match-arm guard has a conjunction whose own condition spine contains a let expression."
+    }
+  },
+  "feature.if_while_or_patterns": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "if": "A top-level or-pattern in a plain if-let condition.",
+      "while": "A top-level or-pattern in a plain while-let condition."
+    }
+  },
+  "feature.inclusive_range_syntax": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "bounded": "A range expression a..=b.",
+      "upper": "A range expression ..=b."
+    }
+  },
+  "feature.inline_const": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "block": "A source-written inline const expression, distinct from a constant item."
+    }
+  },
+  "feature.label_break_value": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "unit": "A labeled break without an operand targets a labeled block.",
+      "value": "A labeled break with an operand targets a labeled block."
+    }
+  },
+  "feature.let_chains": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "if": "An if condition combining a let match with another operand using &&.",
+      "while": "A while condition combining a let match with another operand using &&."
+    }
+  },
+  "feature.let_else": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "declaration": "A local let declaration with an initializer and diverging else block."
+    }
+  },
+  "feature.loop_break_value": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "unlabeled": "A value-carrying unlabeled break targets an enclosing loop.",
+      "labeled": "A value-carrying labeled break targets its named loop, not a block."
+    }
+  },
+  "feature.min_const_fn": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and compiler AST/visitor context. All listed forms require active source-written compiler witnesses and successful compilation. This establishes accepted declarations and expressions, not runtime polling, arbitrary const evaluation, or every trait interaction.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "definition": "A const-qualified function declaration checked by the compiler."
+    }
+  },
+  "feature.or_patterns": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "nested": "An or-pattern occurs inside another pattern rather than as the top-level alternatives of a match or conditional."
+    }
+  },
+  "feature.param_attrs": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "parameter": "A source-written outer attribute annotates a formal parameter."
+    }
+  },
+  "feature.pattern_parentheses": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "group": "A grouped pattern, distinct from a tuple pattern."
+    }
+  },
+  "feature.pub_restricted": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "crate": "A pub(crate) restriction.",
+      "self": "A pub(self) restriction.",
+      "super": "A pub(super) restriction.",
+      "in_path": "A pub(in ancestor::path) restriction."
+    }
+  },
+  "feature.question_mark": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "postfix": "A source-written postfix ? expression accepted by the compiler."
+    }
+  },
+  "feature.raw_ref_op": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "const": "A source-written &raw const place expression.",
+      "mut": "A source-written &raw mut place expression."
+    }
+  },
+  "feature.relaxed_adts": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "expression": "A brace-style struct expression uses a numeric field index.",
+      "pattern": "A brace-style struct pattern uses a numeric field index."
+    }
+  },
+  "feature.slice_patterns": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "unbound": "A slice pattern contains an unbound rest subpattern.",
+      "bound": "A slice pattern binds its rest through an at-pattern."
+    }
+  },
+  "feature.struct_field_attributes": {
+    "applicability": "applicable",
+    "reason": "Interpreted source-syntax contract for this accepted gate, checked against active compiler nodes and an independent source parse. Every named form is required; this does not claim all semantic interactions or per-feature runtime behavior.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "field": "A source-written outer attribute annotates a struct expression field."
+    }
+  },
+  "feature.struct_variant": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "named_fields": "An enum variant with braced named-field syntax."
+    }
+  },
+  "feature.test_accepted_feature": {
+    "applicability": "inapplicable",
+    "reason": "The pinned accepted.rs entry explicitly says this is a compiler table test that does not mean anything; it is not a user language construct.",
+    "detector": null
+  },
+  "feature.tuple_indexing": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "numeric_field": "A numeric field projection on a tuple or tuple struct, distinct from indexing with brackets."
+    }
+  },
+  "feature.while_let": {
+    "applicability": "applicable",
+    "reason": "Interpreted syntactic contract from the pinned accepted-feature entry and rustc_ast definitions. All listed forms require active source-written compiler AST witnesses and successful compilation; no runtime behavior or arbitrary feature combinations are implied.",
+    "detector": "rustc_feature_syntax_v1",
+    "dimension": "syntactic",
+    "required_witnesses": {
+      "condition": "A while expression whose condition is a let-pattern match."
+    }
+  },
+  "grammar.Abi": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "4bbf8e4df93786b8c0242d6521f98681765d44ac753e0d90feecb18956abd7b4"
+  },
+  "grammar.ArithmeticOrLogicalExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "2933cb4082c424b7b1f86e3ecbd8cca8002aaae047616b7a73755022af250ccc"
+  },
+  "grammar.ArrayElements": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "49acd516bec649b08d1a0168d93787bbc0bbf9b7c51aca0494e9e4a3c96d14c8"
+  },
+  "grammar.ArrayExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "b57d526a0ce86f34f7406c1a2152402d9411e40eecfa764efcc8cc7922d918e9"
+  },
+  "grammar.ArrayType": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "d3d440248c44b26b4b2d226d49656e2a1d9cc7ad7d04109a876c459fe812aebf"
+  },
+  "grammar.AssignmentExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "36c16a055bea41814ad129449ec4437b4fb780b1b9cdc07db693f289abbd85e8"
+  },
+  "grammar.BareFunctionReturnType": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "494cd6d1be8cdab09630ce5248bb03a3b50602249d32feb0ee342749dfd7312d"
+  },
+  "grammar.BareFunctionType": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "f170be07830af01a13de926bd8b347b2cb0045c8e99c6d2f81e95fbd3ad39e3b"
+  },
+  "grammar.BreakExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "8cb808e21ffc28b7baf3b3cf9d6b64834932c053f9a659013486555334d835cb"
+  },
+  "grammar.CallExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "954d14e01d63af24297b077ee1d61aac53f106fb800e02a79b47139464aab252"
+  },
+  "grammar.CallParams": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "132782b169b750a7f4169e40c11d919868ce32ea7a2b49e12ab25a984f7574d7"
+  },
+  "grammar.ComparisonExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "c31c3875dc754561f7dfa94b1bd1e74191ce11ff84093604068725159b999bf8"
+  },
+  "grammar.CompoundAssignmentExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "e79f7db968e0fe1f9c4b38e5659c4bcb350a4e93b21b03543e7e68c1720f3a8e"
+  },
+  "grammar.ContinueExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "88cef4bbd86fd7a18e67ff2e364707bb60ebfae266e0e291a221963acdfc90ef"
+  },
+  "grammar.DereferenceExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "59b64f8e2dfb9d217ac25d56c96d3752991d6e26baee70fa5ee26898c98dd0d9"
+  },
+  "grammar.FieldExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "1834161d6aa57afa548484d51ea9dcf91b785fff483fb788161d6b9b84fe38e9"
+  },
+  "grammar.ForLifetimes": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "247485db54ad4622d2ae00bffb69c7f6964bc0d8ee2eff52c39f52b337668537"
+  },
+  "grammar.FunctionParametersMaybeNamedVariadic": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "4377036a1b7ecd05c947532c3c3e27ccb979f06363e49f6d88017059d5430d09"
+  },
+  "grammar.FunctionTypeQualifiers": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "b9ff4d1f5daf13d45682df0ec62682f24fe19584cf6a5003d5f1356548a92137"
+  },
+  "grammar.GroupedExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "fad1f2b643ad068cb83b263ee4cc62caa47c6281a77fa911a45f1984374a8d3e"
+  },
+  "grammar.GroupedPattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "54482fe66c13a9e69fd83d2f751dba740a00fc0d5e6f10b28c0302b45b563560"
+  },
+  "grammar.IdentifierPattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence. Compiler name resolution distinguishes fresh bindings from constant and unit-constructor paths before evidence is admitted. An independent source parse supplies syntax candidates, not name-resolution proof.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "971d174abfc3da551d75eca7fe92ef1ebf6d123463d7cc2503b1898d12952baa"
+  },
+  "grammar.IndexExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "b6d531432924c57b420814c3d4ff5662bb7b8464b8a107f34116e2a86f505207"
+  },
+  "grammar.InferredType": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "195fe8128666a72bd7996cd061028616da92cf29097c6c5632eab0bb24c51bba"
+  },
+  "grammar.InfiniteLoopExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "f6ffe9379efcf291d3ddcc9cd13f5a044d2d40fce29e7455a98ef6ac346321ad"
+  },
+  "grammar.LabelBlockExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "e9c309306e7b0206e43d4b3005fca0c7919bf4a065f3786ccfe63825470f324f"
+  },
+  "grammar.LazyBooleanExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "1eaaccb5d3f625c6dc7b547b3de11c3ed95583aea98131bd3ecb36dbcf9e0e68"
+  },
+  "grammar.LiteralExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "484a4b058bd4c6f603a225cd5eb1ce7c943111dc138fe663ef0899578d070295"
+  },
+  "grammar.LiteralPattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "e432421d819b234e709f919ae100943620852d06b8d27ff1ee9ea02392b0f2a2"
+  },
+  "grammar.LoopExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "0a4bdcb0905ba2859356f0c85cf850c75c061a096b927c303f6d688985857938"
+  },
+  "grammar.LoopLabel": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "d28001a58969947a3145e24edd9497264b27377e1bb6ed3b29f23a3512ed80c3"
+  },
+  "grammar.MaybeNamedFunctionParameters": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "04f6394c23908d7b833fcba034f3f71acbae229d4ebfc01d838ddad0981738a2"
+  },
+  "grammar.MaybeNamedFunctionParametersVariadic": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "28ad2c6a8e6589a943207a5219170302c8f4c0d75adb37ad72259f135cb91983"
+  },
+  "grammar.MaybeNamedParam": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "e17340014892e1c40da251a63e68055a961547350588dced16a0c4c5f5477a61"
+  },
+  "grammar.MethodCallExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "4d4efd8055c0b6108ea6608023b4d6747e1f83ec85dfdcd7b51574821e0e2579"
+  },
+  "grammar.ModernRangePattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "860f9586052f132423503fd035e650a9f9a8950bdc3f1b920767e9f4fbc8eaee"
+  },
+  "grammar.NegationExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "5e6779ed81d70831c134df8ed1615b090970e5ec34b71c500fa2b67ad0b6c789"
+  },
+  "grammar.NeverType": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "58827ba695705da1acb5b57b57d541faf4fdfd6c54ba69e465d710ca624fb6b5"
+  },
+  "grammar.OperatorExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "1d8396c8b27b7ce6dd00966321c846ac8a57ba9df8e152741dbdaa6f8ed47745"
+  },
+  "grammar.ParenthesizedType": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "3ac85fef0534f1c11ff8391a10342f1cdb9c6d09d4e2d8dda00c514c4a6130e7"
+  },
+  "grammar.PathPattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence. Compiler name resolution distinguishes fresh bindings from constant and unit-constructor paths before evidence is admitted. An independent source parse supplies syntax candidates, not name-resolution proof.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "0e8438031ca8d8a2d3b1b189fdbdb957b37faf03d44b276d49a55d293b842947"
+  },
+  "grammar.PredicateLoopExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "5624b4a28fd44fbce9743bc6a95ac0c763e959dfa98e87e694dec33a5577f689"
+  },
+  "grammar.RangeExclusivePattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "b9f50bee529cf8565da8aa95d2cf56a58aed6a49b5626b2b8551280c1b252ed2"
+  },
+  "grammar.RangeExpr": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "89a2711f38d5e19500c6f55117fa8c9cacd26bc08ac77f5ed681d86c4db6288d"
+  },
+  "grammar.RangeExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "80860e7ff2387ef8c5a6215ffbb141a0642f32bad18d3cf1a6e2db031cfcd5a0"
+  },
+  "grammar.RangeFromExpr": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "f140caefa1cc8dfe292f232de1e8ef84048d803ef46c811f3ecb542eba9892c8"
+  },
+  "grammar.RangeFromPattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "b17b40b506a8cd0a71a857148779d8a9b2212645d8d80504fd74a0f8033a9e46"
+  },
+  "grammar.RangeFullExpr": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "0ba489ac81994d49ab0f648682f2fc796c30fea037e751b1308143a0dbe8505b"
+  },
+  "grammar.RangeInclusiveExpr": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "f87f6c0c038edb48afdd97a06f8c6b07ed52f77f287e3696cd6934bfa03f0fde"
+  },
+  "grammar.RangeInclusivePattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "4d9fe394adbc46206fb83cec3f5115b186ebac5ba905f8e213b04048ae08c966"
+  },
+  "grammar.RangePatternBound": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "58d1f5e48de06b30910f6ee95a6265438aa45a1dc902941b2d878eb9f2dfd891"
+  },
+  "grammar.RangeToExclusivePattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "5c4c6b7c505469112759c6ab432f073d3370dcddb199b001917fad481060f9aa"
+  },
+  "grammar.RangeToExpr": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "dfd2b3de9cbc9c96f81bf1b995d14853af9b86b0f744c100a20c6727ac12aa71"
+  },
+  "grammar.RangeToInclusiveExpr": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "f65eec73659bb969633cb848b900a7e3e952ae3bf818ced6525b33867e8b485e"
+  },
+  "grammar.RangeToInclusivePattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "320f3948f5919223c5436b67093b85d216dbbf5e3ec11ba15538b70303891024"
+  },
+  "grammar.RawPointerType": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "5659174e1bf78487acf3fccaaeab57500d628756a2c0b6bfd4b447cf4a88edf0"
+  },
+  "grammar.ReferenceType": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "700207a24ad564d49dbdf90ae518a2b663e5df73ca3ed2f634a638ff5a6b780e"
+  },
+  "grammar.RestPattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "e0d1a0437eb9cac4c13ef2bbb290a6d27a02926416d07a0eb03eba1d35d94784"
+  },
+  "grammar.ReturnExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "f281b70985785740bc97671611002016b22fdf08d2f51452e8431f8062eb3777"
+  },
+  "grammar.SlicePattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "f4f29afee5dea887c2608b61ba64a4294b273ba35c18c8b2f81614b4af605ec4"
+  },
+  "grammar.SlicePatternItems": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "300ca68eb5db76b6ce7fe9e4cb8091a6d13636e83233acdf34af37c9afd8e76b"
+  },
+  "grammar.SliceType": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from Reference type grammar to source-written compiler type nodes. Function-pointer productions use their own declarations and parameters, rather than ordinary function items. Optional forms and list cardinalities are independently required; implicit self and implicit inference nodes do not establish written type syntax.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "93658aed506bc3e851a2daf5078153481228f4cf75e1fd22304fa2c103671a45"
+  },
+  "grammar.StructBase": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "2a15c38c60066d40ed3a6ba91a5b3a1c8d7df7e5d9ccf4ce7269cab816ce80ed"
+  },
+  "grammar.StructExprField": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "49cb0b4a72b9d2ca8acb3ab1f0e7ca863eb244f048bd2da1a07ce9bbc59006ce"
+  },
+  "grammar.StructExprFields": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "0d8ff3ffcba7c3bea3cdc5c3b275c7ac0b7b4eb197f859c1ccb8076f9455b666"
+  },
+  "grammar.StructExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "a66bcbed5f13c4adf2dee695e5fa1008e2f92eb54fedee8dfb4e69866c1522a7"
+  },
+  "grammar.StructPattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "debd06b7fed721c691c483e47ff5e4962d2d09a49e4fc3f4a91d3e569f046d43"
+  },
+  "grammar.StructPatternElements": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "ae9b4f25ae453f0eb7b63a2667055821035e7aebdcc2f47e37a680ea4107e86d"
+  },
+  "grammar.StructPatternEtCetera": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "0ebbc59f40563113c3de9c54b61b5552b9347230ec14fcf26a9d06cd66dbbe62"
+  },
+  "grammar.StructPatternField": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "1a8cc9adfaf7e31a3767069c26aab7dfa74b28a8f616a03d31b9f3c509fb97d6"
+  },
+  "grammar.StructPatternFields": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "2f6043932183d4b1ac9aad2d7a97bf101ff934e4d9ac093834fe010adbec24ab"
+  },
+  "grammar.TryPropagationExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "67f63bd95ce26cb07427860b33fbd4a834f4dccc18f814adb3721d1b58c7a55d"
+  },
+  "grammar.TupleElements": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "d6b287bf234cbc00c1dacf5f02ba2d67c6b4dab8df13e148c33391af1dcca1a3"
+  },
+  "grammar.TupleExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "b5fc631238b013e479bfc622d9327de47fd8bf81b9f69e8c6cd40c43f7dea146"
+  },
+  "grammar.TupleIndexingExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "bfd79d8c4f92f67772ea6dec1ee526b5725e545055eb4fdc7d0deeffba076165"
+  },
+  "grammar.TuplePattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "5532ecc1f84643228d619c2e0a1655a0b5547744246afc6c86f6e4c88c0339d1"
+  },
+  "grammar.TuplePatternItems": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "2477bab99e5b1f1300284c0739342b1705e8d271925a86e28978135929df9243"
+  },
+  "grammar.TupleStructItems": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "ede2306df093e86e3040fb0d2511fddd89ff21fd30dace4a0aa84c8bd83c30e6"
+  },
+  "grammar.TupleStructPattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed struct expression or destructuring-pattern grammar from the pinned Reference. Compiler fields distinguish shorthand, update bases, rest patterns, and attributes; original source tokens determine trailing commas. Qualified-path extensions do not count as the Reference's unqualified struct forms. Local structural forms do not establish arbitrary combinations.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "11ff1a3755f590fd60e4772000138724bc86e6d32a6425fcb0200e16a1021408"
+  },
+  "grammar.TupleType": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "079341781d847612e0594d3993f9dc97098d52a1bf62723d0d9d17c2b3d9d9f3"
+  },
+  "grammar.TypeCastExpression": {
+    "applicability": "applicable",
+    "reason": "Reviewed mapping from this pinned Reference production to compiler AST and original token spelling. Every extracted local alternative, optional presence/absence, and repetition cardinality must have active source evidence. Referenced productions are audited separately; this does not claim every combination or runtime behavior.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "89539d8ed6fbbce8b3d279144d98eacebe5051a052c514e996a5ee6b0bc8b406"
+  },
+  "grammar.WildcardPattern": {
+    "applicability": "applicable",
+    "reason": "Reviewed pattern grammar from the pinned Reference. Actual pattern context distinguishes literal/range/wildcard patterns from expression and type look-alikes; shorthand fields and function-pointer parameter labels do not provide standalone pattern evidence.",
+    "detector": "rustc_reference_v1",
+    "grammar_shape_hash": "a913066d5d37327e70eec5f799c46db77fdc6318453163be5ce4b7de8ceee7b2"
+  },
+  "keyword.Abstract": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.As": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Async": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Auto": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Await": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Become": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Box": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Break": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Builtin": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Catch": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Const": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Continue": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.ContractEnsures": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.ContractRequires": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Crate": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Default": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Do": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.DollarCrate": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Dyn": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Else": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Enum": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Extern": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.False": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Final": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Fn": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.For": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Gen": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.If": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Impl": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.In": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Let": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Loop": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Macro": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.MacroRules": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Match": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Mod": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Move": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Mut": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Override": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.PathRoot": {
+    "applicability": "inapplicable",
+    "reason": "Synthetic compiler root marker, not a source spelling.",
+    "detector": null
+  },
+  "keyword.Priv": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Pub": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Raw": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Ref": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Return": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Reuse": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Safe": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.SelfLower": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.SelfUpper": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Static": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.StaticLifetime": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Struct": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Super": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Trait": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.True": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Try": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Type": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Typeof": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Underscore": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.UnderscoreLifetime": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Union": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Unsafe": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Unsized": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Use": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Virtual": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Where": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.While": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Yeet": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "keyword.Yield": {
+    "applicability": "applicable",
+    "reason": "Lexical spelling only: reserved and weak keywords can appear as macro input; this does not claim active language semantics.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.Base.Binary": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.Base.Decimal": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.Base.Hexadecimal": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.Base.Octal": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.DocStyle.Inner": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.DocStyle.Outer": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.FrontmatterAllowed.No": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.FrontmatterAllowed.Yes": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.LiteralKind.Byte": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.LiteralKind.ByteStr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.LiteralKind.CStr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.LiteralKind.Char": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.LiteralKind.Float": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.LiteralKind.Int": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.LiteralKind.RawByteStr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.LiteralKind.RawCStr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.LiteralKind.RawStr": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.LiteralKind.Str": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.RawStrError.InvalidStarter": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.RawStrError.NoTerminator": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.RawStrError.TooManyDelimiters": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.TokenKind.And": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.At": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Bang": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.BlockComment": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Caret": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.CloseBrace": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.CloseBracket": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.CloseParen": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Colon": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Comma": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Dollar": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Dot": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Eof": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.TokenKind.Eq": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Frontmatter": {
+    "applicability": "inapplicable",
+    "reason": "Frontmatter requires the unstable frontmatter gate; pinned feature_gate.rs explicitly gates it.",
+    "detector": null
+  },
+  "lex.TokenKind.Gt": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.GuardedStrPrefix": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.TokenKind.Ident": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.InvalidIdent": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.TokenKind.Lifetime": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.LineComment": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Literal": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Lt": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Minus": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.OpenBrace": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.OpenBracket": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.OpenParen": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Or": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Percent": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Plus": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Pound": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Question": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.RawIdent": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.RawLifetime": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Semi": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Slash": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Star": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Tilde": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  },
+  "lex.TokenKind.Unknown": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.TokenKind.UnknownPrefix": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.TokenKind.UnknownPrefixLifetime": {
+    "applicability": "inapplicable",
+    "reason": "Compiler-internal, recovery, invalid/reserved token, or lexer configuration state; not a valid source construct under the stable 2024 positive profile. See the candidate compiler declaration.",
+    "detector": null
+  },
+  "lex.TokenKind.Whitespace": {
+    "applicability": "applicable",
+    "reason": "Reviewed stable source form in the pinned compiler definition; lexical presence is distinct from semantic use.",
+    "detector": "rustc_lexer_v1"
+  }
+}

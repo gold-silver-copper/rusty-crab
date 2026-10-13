@@ -1,0 +1,125 @@
+Build a compiler-audited Rust language pangram
+
+Implement a Rust project named rusty-crab that generates another Rust project serving as a language pangram: the equivalent of “the quick brown fox jumps over the lazy dog,” but for Rust language constructs. The generated source must explain its constructs with a meaningful comment on every line. The central goal is mechanically auditable coverage, with the Rust compiler and its source providing the coverage inventory and evidence.
+
+Build the inventory extractor and independent auditor first. Let their missing-coverage reports drive the generator. Do not substitute a manually assembled collection of interesting Rust examples for a compiler-derived coverage model. Deliver working code, generated examples, tests, and reproducible commands, rather than only an architecture proposal.
+
+1. Define exactly what completeness means
+
+Pin an exact Rust compiler revision and matching toolchain. Record the edition, target triple, crate types, compiler flags, enabled features, and conditional-compilation settings for each audited configuration. Keep the compiler used to implement the auditor distinct from the language profile being demonstrated: an auditor using compiler internals may require nightly even when auditing stable syntax.
+
+The desired claim is: “Every applicable requirement in inventory X is demonstrated under configuration Y, with independently verified evidence.” Do not claim that enumerating AST variants proves coverage of every Rust behavior. Arbitrary feature combinations and program behaviors are not a finite checklist supplied by rustc.
+
+Treat lexical structure, syntax, and selected semantic rules as separate coverage dimensions. Rust has no formal phonology; interpret that part of the pangram metaphor as coverage of the language's written tokens and spellings. Standard-library API coverage is outside scope unless needed as evidence for a language construct.
+
+Start with a stable-language, edition-2024 profile. Design explicit companion profiles for nightly syntax, other editions, target-specific constructs, procedural-macro crates, and examples that must fail compilation. Do not silently omit these categories or pretend one executable can demonstrate mutually incompatible configurations. Mark unimplemented profiles and requirements honestly.
+
+2. Extract the inventory from authoritative inputs
+
+Inspect the pinned compiler source and the matching Rust Reference. Verify the actual APIs and source layout; do not assume current online examples match the selected compiler revision.
+
+Extract candidate requirements from sources including:
+
+- rustc_lexer token and literal categories, with source-level distinctions where token categories merge different spellings.
+- rustc_ast expression, pattern, type, statement, item, operator, visibility, generic-parameter, and modifier definitions.
+- rustc_feature accepted, unstable, and removed language-feature tables, built-in attributes, and relevant compatibility restrictions.
+- Parser logic and Reference grammar rules needed to distinguish forms not represented by separate AST variants.
+
+Feature-gate tables are historical gate inventories, not a complete list of the language. AST definitions also contain internal, synthetic, and error-recovery constructs. Classify these instead of requiring every enum variant to appear in a valid user program.
+
+Automatically extract what is structurally enumerable. Maintain an explicit, versioned interpretation layer for the rest. For example, an ExprKind::Binary candidate must expand into requirements for individual operators; function declarations need requirements for relevant qualifiers. Identify whether each requirement is directly extracted, derived by a rule, or manually specified. Do not misrepresent curated distinctions as automatic discoveries.
+
+Do not attempt to enumerate every possible combination of modifiers and constructs. Define and document the selected interaction requirements separately. Use compiler tests and Reference rules as additional evidence for semantic requirements; neither is automatically an exhaustive feature oracle.
+
+For each requirement, record a stable identifier, description, category, source provenance at the pinned revision, applicability conditions, detection method, and implementation status. Keep applicability separate from coverage. An applicable but undetected requirement is missing or unsupported, not excluded. Every exclusion needs a concrete reason and provenance.
+
+Inventory extraction must produce deterministic machine-readable output. Unknown source structures, unclassified candidates, and extraction failures must be visible and prevent a successful completeness claim. Never turn an extraction failure into an empty inventory that passes.
+
+3. Implement an independent compiler-backed auditor
+
+Use rustc_driver/rustc_interface and compiler visitors or queries where appropriate. Investigate the available hooks in the pinned revision. If a needed stage is unavailable through callbacks, use the matching parser APIs or a narrowly documented compiler modification. Be explicit about maintenance costs. syn may help with extraction or generation, but must not serve as the authority for whether the compiler accepts the result.
+
+Collect lexical evidence from original source and syntactic evidence before lowering erases distinctions. Inspect macro expansion and later compiler stages separately when needed. Preserve the distinction between source-written and expansion-generated constructs; a generated loop must not count as a source-written loop. Similarly, dependency code must not satisfy requirements for the pangram itself.
+
+Account for conditional compilation and external module files. A construct in an inactive cfg branch may count as lexical presence but must not count as compiler-validated use in the active configuration. Parsing alone does not establish type correctness. A declared feature gate does not establish that its feature is exercised.
+
+For every covered requirement, emit evidence containing the audited configuration, file, source span, detector, evidence stage, and macro provenance where relevant. Distinguish at least source presence, compiler acceptance, expected rejection, and observed runtime behavior. A runtime claim requires an actual behavior check, not merely an AST node.
+
+Use compiler type information and later representations for explicitly defined semantic witnesses, such as selected coercions, trait resolution, ownership behavior, or borrow-checking rules. If a reliable detector has not been implemented, report that limitation. Avoid broad claims based only on compilation success or compiler branch coverage.
+
+The auditor must inspect the generated code independently. It must not trust generator metadata, annotation text, or example names as proof. The inventory can be shared; assertions of successful coverage cannot be shared as evidence.
+
+4. Generate a readable annotated showcase
+
+Generate a coherent runnable core program, plus companion crates or fixtures where the inventory requires them. Prefer small, understandable examples with useful assertions over one artificially compressed expression. It is acceptable to produce a project rather than one source file.
+
+Use a structured catalog of examples, their intended requirements, prerequisites, configurations, and explanations. Assemble compatible examples deterministically. syn and quote are optional implementation tools; do not force them into places where preserving source spelling and comments requires another representation.
+
+Every physical line in generated Rust source must contain a meaningful explanatory comment, including attributes, imports, braces, and supporting code. Avoid empty lines or use comment-only separators. Explain what each construct does in that context; closing delimiters should identify the construct they close. Unsafe examples must also explain their safety conditions. Do not add comments inside literal contents and mistakenly count them as actual comments. Handle multiline lexical examples deliberately, or keep them single-line when possible.
+
+Ordinary comments are not preserved through a typical syn/quote token round trip. Preserve explanations explicitly alongside the code and attach them during rendering. Validate annotations using lexical information rather than searching for the substring “//”, which can occur inside strings. Check annotation placement after any formatting step.
+
+Source comments can include requirement identifiers for navigation, but the independent audit decides whether those requirements are satisfied. Do not generate explanations that promise behavior the example does not demonstrate.
+
+Compile all applicable positive examples. Run deterministic, portable examples and verify their output or assertions. Keep target-specific, compile-only, and compile-fail fixtures clearly distinguished. Avoid executing undefined behavior merely to demonstrate unsafe syntax. For negative fixtures, require the intended diagnostic or other specific rejection evidence, not just any failed compiler invocation.
+
+5. Report coverage without hiding gaps
+
+Provide machine-readable JSON and a concise human-readable report that maps requirements to evidence and source locations. Include configuration and compiler identity in the report.
+
+Report covered, missing, unsupported, unclassified, and explicitly inapplicable requirements separately. Report lexical, syntactic, semantic, and interaction coverage separately. Count unsupported applicable requirements as gaps. Explain denominators; do not inflate a percentage by dropping difficult requirements or imply that a completed subset is the entire language.
+
+Provide an inventory-diff command for compiler upgrades. Detect added, removed, and structurally changed candidates and identify requirements or detectors needing review. Use exhaustive matching where practical, plus source-schema checks where exhaustive matches cannot catch changes. A changed compiler must not silently reuse a stale inventory or stale evidence.
+
+Normalize ordering and project-relative paths. Keep timestamps, temporary directories, and other nondeterministic metadata out of canonical artifacts. Include content hashes and configuration identity so an audit cannot be mistaken for evidence about a different generated source tree.
+
+6. Provide a usable command-line workflow
+
+Offer commands equivalent to:
+
+  cargo run -- inventory extract
+  cargo run -- generate --profile stable
+  cargo run -- audit --profile stable
+  cargo run -- report
+  cargo run -- inventory diff <old-inventory> <new-inventory>
+
+You may adjust the command structure to fit the implementation. Document exact runnable commands and setup requirements, including matching rustc-dev/compiler-source components where needed. Pin dependencies and commit the lockfile. Keep the generated source inspectable.
+
+Distinguish normal reporting from a strict completeness check. Strict checking must exit unsuccessfully when applicable requirements are missing, unsupported, or unclassified, when expected validation fails, or when inventory/configuration identities do not match. Never print a success claim when required evidence is unavailable.
+
+7. Test the trust boundaries
+
+Include meaningful tests that establish:
+
+- Repeated extraction and generation produce identical canonical artifacts for identical inputs.
+- Representative lexical and syntactic distinctions receive separate requirements and correct source witnesses.
+- Removing the only actual use of a covered construct makes its requirement missing.
+- Mentioning a feature in a comment or string does not count as using it.
+- Generator metadata alone cannot satisfy a requirement.
+- Inactive cfg branches, dependency code, and macro expansions cannot falsely satisfy requirements for active source-written constructs.
+- Expected-failure examples fail for the intended reason.
+- Generated runnable examples compile and behave as documented.
+- Every generated source line has a real explanatory comment.
+- Unknown inventory candidates and stale compiler/configuration identities cause strict auditing to fail.
+
+Do not rely only on snapshots or on tests that repeat the detector's implementation. Include negative controls that would expose false positives.
+
+8. Work in verifiable stages
+
+First inspect the workspace and relevant repository instructions. Select and document a compatible compiler revision. Build a small end-to-end slice: extract a real inventory subset, audit an example, generate annotated code, and demonstrate that removing a construct produces a missing-coverage result.
+
+Then expand the extraction and detection coverage across the applicable compiler categories. Keep the inventory and gap report accurate throughout. A vertical slice is an intermediate milestone, not completion of the full task. Continue implementing applicable requirements, and report any concrete blockers rather than weakening definitions to obtain a green report.
+
+Deliver the source code, pinned configuration, extracted inventory and provenance, interpretation rules, generated showcase, audit artifacts, tests, and README instructions. Explain the achieved coverage, remaining gaps, and the exact completeness claim supported by the evidence. Do not describe an unfinished implementation as exhaustive.
+
+Authoritative starting points
+
+Resolve these moving documentation links against the chosen compiler revision before relying on specific APIs:
+
+- https://rustc-dev-guide.rust-lang.org/rustc-driver/intro.html
+- https://rustc-dev-guide.rust-lang.org/the-parser.html
+- https://rustc-dev-guide.rust-lang.org/hir.html
+- https://doc.rust-lang.org/nightly/nightly-rustc/rustc_ast/ast/
+- https://doc.rust-lang.org/nightly/nightly-rustc/rustc_feature/index.html
+- https://doc.rust-lang.org/reference/
+- https://github.com/rust-lang/rust

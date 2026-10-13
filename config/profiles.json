@@ -1,0 +1,73 @@
+{
+  "stable": {
+    "status": "implemented_with_coverage_gaps",
+    "toolchain": "1.99.0",
+    "edition": "2024",
+    "target": "compiler_host",
+    "crate_types": [
+      "bin"
+    ],
+    "positive_validation": [
+      "expanded_ast",
+      "typecheck",
+      "link",
+      "run"
+    ],
+    "negative_validation": [
+      "expected_diagnostic"
+    ],
+    "features": []
+  },
+  "stable_freestanding": {
+    "status": "implemented_with_coverage_gaps",
+    "toolchain": "1.99.0",
+    "edition": "2024",
+    "target": "compiler_host",
+    "crate_types": [
+      "bin"
+    ],
+    "flags": [
+      "-Cpanic=abort"
+    ],
+    "positive_validation": [
+      "expanded_ast",
+      "typecheck",
+      "object"
+    ],
+    "negative_validation": [
+      "expected_diagnostic"
+    ],
+    "features": [],
+    "purpose": "An annotated no_std/no_main object with its own panic handler and an exported C-ABI function. No host, linker script, executable, or runtime behavior is claimed. Negative fixtures remain separate crates and may use std."
+  },
+  "stable_procedural_macros": {
+    "status": "planned",
+    "toolchain": "1.99.0",
+    "edition": "2024",
+    "crate_types": [
+      "proc-macro",
+      "bin"
+    ],
+    "purpose": "Define function-like, derive, and attribute macros in a companion crate, then invoke and audit them in a consumer. Preserve expansion provenance."
+  },
+  "historical_editions": {
+    "status": "planned",
+    "toolchain": "1.99.0",
+    "editions": [
+      "2015",
+      "2018",
+      "2021"
+    ],
+    "purpose": "Run separate compiler configurations for edition-dependent grammar. This does not emulate historical compiler releases."
+  },
+  "nightly": {
+    "status": "planned",
+    "toolchain": null,
+    "purpose": "Select an exact nightly revision and extract a separate inventory. Use compatible gate sets from dependency and incompatibility tables; never enable all gates indiscriminately."
+  },
+  "target_specific": {
+    "status": "planned",
+    "targets": [],
+    "purpose": "Declare concrete target triples and prerequisites before enabling ABI, linker, assembly, or architecture-specific examples. Record compile-only and executable cases separately."
+  }
+}

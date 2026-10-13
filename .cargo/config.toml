@@ -1,0 +1,5 @@
+[env]
+# Permit compiler-private APIs only in the auditor crate. Audited rustc invocations
+# explicitly remove this variable and retain stable-language feature gating.
+RUSTC_BOOTSTRAP = "rusty_crab"
+
